@@ -1,0 +1,511 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8"/>
+		<title>
+			Zuse Z22 Emulator by Norbert Kehrer
+		</title>
+		<link rel="stylesheet" type="text/css" href="z22.css">
+		<script type="text/javascript" src="z22_emu.js"></script>
+
+	</head>
+
+	<body onload="run()">
+
+		<div class="tabStrip">
+			<ul>
+				<li>
+					<a href="javascript:openTab(1);" class="tabLinkActive" id="tabLink1">Bedienpult <br> Control Panel</a>
+				</li>
+				<li>
+					<a href="javascript:openTab(2);" class="tabLink" id="tabLink2">Lochstreifenabtaster <br> Punched Tape Reader</a>
+				</li>
+				<li>
+					<a href="javascript:openTab(3);" class="tabLink" id="tabLink3">Fernschreiber <br> Teleprinter</a>
+				</li>
+				<li>
+					<a href="javascript:openTab(9);" class="tabLink" id="tabLink9">About <br> &Uuml;ber</a>
+				</li>
+			</ul>
+		</div>
+
+		<!-- ****************************************************************************************** -->
+		<!-- Bedienpult  -->
+		<!-- ****************************************************************************************** -->
+		<div class="tabContentActive" id="tabContent1">
+			<table class="blackTable">
+				<tr>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>Trmml<br>Alarm</td>
+					<td>Ende<br>Klappe</td>
+					<td>Haken</td>
+					<td>Motor</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td style="width: 30px">&nbsp;</td>
+					<td style="width: 30px">&nbsp;</td>
+					<td class="anz_beschr_table">&nbsp;</td>
+					<td class="anz_beschr_table">&nbsp;</td>
+					<td class="anz_beschr_table">FS</td>
+					<td class="anz_beschr_table">Hei-<br>zung</td>
+					<td class="anz_beschr_table">Anode</td>
+					<td class="anz_beschr_table">&nbsp;</td>
+					<td class="anz_beschr_table">T2</td>
+					<td class="anz_beschr_table">T3</td>
+					<td class="anz_beschr_table">T4</td>
+				</tr>
+				<tr class="anz_lampe_tr">
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td class="anz_lampe_td"><span class = "lamp_off">&nbsp;&nbsp;</span></td>
+					<td class="anz_lampe_td"><span class = "lamp_off">&nbsp;&nbsp;</span></td>
+					<td class="anz_lampe_td"><span class = "lamp_off">&nbsp;&nbsp;</span></td>
+					<td class="anz_lampe_td"><span class = "lamp_off">&nbsp;&nbsp;</span></td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td style="width: 30px">&nbsp;</td>
+					<td style="width: 30px">&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td class="anz_lampe_td"><span class = "lamp_on">&nbsp;&nbsp;</span></td>
+					<td class="anz_lampe_td"><span class = "lamp_on">&nbsp;&nbsp;</span></td>
+					<td class="anz_lampe_td"><span class = "lamp_on">&nbsp;&nbsp;</span></td>
+					<td class="anz_lampe_td"><span class = "lamp_off">&nbsp;&nbsp;</span></td>
+					<td class="anz_lampe_td"><span class = "lamp_off" id="Lamp_T2">&nbsp;&nbsp;</span></td>
+					<td class="anz_lampe_td"><span class = "lamp_off" id="Lamp_T3">&nbsp;&nbsp;</span></td>
+					<td class="anz_lampe_td"><span class = "lamp_off" id="Lamp_T4">&nbsp;&nbsp;</span></td>
+				</tr>
+				<tr>
+					<td>&nbsp;</td>
+				</tr>
+				<tr>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td style="width: 30px">&nbsp;</td>
+					<td style="width: 30px">&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td><button class="button_green"></button></td>
+					<td><button class="button_red" onclick="alert('Close browser window to switch off the machine.')"></button></td>
+					<td><button class="button"></button></td>
+					<td><button class="button" id="Bed_Schalter" onclick="button_pressed(this)"></button></td>
+					<td><button class="button" id="Bed_Stop" onclick="button_pressed(this)"></button></td>
+					<td><button class="button"></button></td>
+					<td><button class="button_red"></button></td>
+				</tr>
+				<tr>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td style="width: 30px">&nbsp;</td>
+					<td style="width: 30px">&nbsp;</td>
+					<td class="anz_beschr_table">&nbsp;</td>
+					<td class="anz_beschr_table">&nbsp;</td>
+					<td class="anz_beschr_table">Ein</td>
+					<td class="anz_beschr_table">Aus</td>
+					<td class="anz_beschr_table">FS.<br>Ein</td>
+					<td class="anz_beschr_table">Bed.<br>Schalt</td>
+					<td class="anz_beschr_table">Bed.<br>Stop</td>
+					<td class="anz_beschr_table">Pr&uuml;-<br>fung</td>
+					<td class="anz_beschr_table">Nacht</td>
+				</tr>
+				<tr>
+					<td>&nbsp;</td>
+				</tr>
+				<tr class="anz_lampe_tr">
+					<td>&nbsp;</td>
+					<td class="anz_lampe_td"><span class = "lamp_on"  id="Lamp_01">&nbsp;&nbsp;</span></td>
+					<td class="anz_lampe_td"><span class = "lamp_off" id="Lamp_02">&nbsp;&nbsp;</span></td>
+					<td class="anz_lampe_td"><span class = "lamp_off" id="Lamp_03">&nbsp;&nbsp;</span></td>
+					<td class="anz_lampe_td"><span class = "lamp_off" id="Lamp_04">&nbsp;&nbsp;</span></td>
+					<td class="anz_lampe_td"><span class = "lamp_off" id="Lamp_05">&nbsp;&nbsp;</span></td>
+					<td class="anz_lampe_td"><span class = "lamp_off" id="Lamp_06">&nbsp;&nbsp;</span></td>
+					<td class="anz_lampe_td"><span class = "lamp_off" id="Lamp_07">&nbsp;&nbsp;</span></td>
+					<td class="anz_lampe_td"><span class = "lamp_off" id="Lamp_08">&nbsp;&nbsp;</span></td>
+					<td class="anz_lampe_td"><span class = "lamp_off" id="Lamp_09">&nbsp;&nbsp;</span></td>
+					<td class="anz_lampe_td"><span class = "lamp_off" id="Lamp_10">&nbsp;&nbsp;</span></td>
+					<td style="width: 30px">&nbsp;</td>
+					<td style="width: 30px">&nbsp;</td>
+					<td>&nbsp;</td>
+					<td class="anz_lampe_td"><span class = "lamp_off" id="Lamp_11">&nbsp;&nbsp;</span></td>
+					<td class="anz_lampe_td"><span class = "lamp_off" id="Lamp_12">&nbsp;&nbsp;</span></td>
+					<td class="anz_lampe_td"><span class = "lamp_off" id="Lamp_13">&nbsp;&nbsp;</span></td>
+					<td class="anz_lampe_td"><span class = "lamp_off" id="Lamp_14">&nbsp;&nbsp;</span></td>
+					<td class="anz_lampe_td"><span class = "lamp_off" id="Lamp_15">&nbsp;&nbsp;</span></td>
+					<td class="anz_lampe_td"><span class = "lamp_off" id="Lamp_16">&nbsp;&nbsp;</span></td>
+					<td class="anz_lampe_td"><span class = "lamp_off" id="Lamp_17">&nbsp;&nbsp;</span></td>
+					<td class="anz_lampe_td"><span class = "lamp_off" id="Lamp_18">&nbsp;&nbsp;</span></td>
+					<td class="anz_lampe_td"><span class = "lamp_off" id="Lamp_19">&nbsp;&nbsp;</span></td>
+					<td class="anz_lampe_td"><span class = "lamp_off" id="Lamp_20">&nbsp;&nbsp;</span></td>
+				</tr>
+				<tr>
+					<td class="anz_beschr_table">&nbsp;</td>
+					<td class="anz_beschr_table">Befehl</td>
+					<td class="anz_beschr_table">Text</td>
+					<td class="anz_beschr_table">PP</td>
+					<td class="anz_beschr_table">P</td>
+					<td class="anz_beschr_table">QQ</td>
+					<td class="anz_beschr_table">Q</td>
+					<td class="anz_beschr_table">Y</td>
+					<td class="anz_beschr_table">C</td>
+					<td class="anz_beschr_table">N</td>
+					<td class="anz_beschr_table">LL</td>
+					<td style="width: 30px">&nbsp;</td>
+					<td style="width: 30px">&nbsp;</td>
+					<td class="anz_beschr_table">&nbsp;</td>
+					<td class="anz_beschr_table">R</td>
+					<td class="anz_beschr_table">U</td>
+					<td class="anz_beschr_table">A</td>
+					<td class="anz_beschr_table">S</td>
+					<td class="anz_beschr_table">F</td>
+					<td class="anz_beschr_table">K</td>
+					<td class="anz_beschr_table">H</td>
+					<td class="anz_beschr_table">Z</td>
+					<td class="anz_beschr_table">G</td>
+					<td class="anz_beschr_table">V</td>
+				</tr>
+				<tr>
+					<td>&nbsp;</td>
+				</tr>
+				<tr>
+					<td><button class="button_black" id="Button_Release_1" onclick="button_pressed(this)"></button></td>
+					<td><button class="button_pressed" id="Bit_01" onclick="button_pressed(this)"></button></td>
+					<td><button class="button" id="Bit_02" onclick="button_pressed(this)"></button></td>
+					<td><button class="button" id="Bit_03" onclick="button_pressed(this)"></button></td>
+					<td><button class="button" id="Bit_04" onclick="button_pressed(this)"></button></td>
+					<td><button class="button" id="Bit_05" onclick="button_pressed(this)"></button></td>
+					<td><button class="button" id="Bit_06" onclick="button_pressed(this)"></button></td>
+					<td><button class="button" id="Bit_07" onclick="button_pressed(this)"></button></td>
+					<td><button class="button" id="Bit_08" onclick="button_pressed(this)"></button></td>
+					<td><button class="button" id="Bit_09" onclick="button_pressed(this)"></button></td>
+					<td><button class="button" id="Bit_10" onclick="button_pressed(this)"></button></td>
+					<td style="width: 30px">&nbsp;</td>
+					<td style="width: 30px">&nbsp;</td>
+					<td><button class="button_black" id="Button_Release_2" onclick="button_pressed(this)"></button></td>
+					<td><button class="button" id="Bit_11" onclick="button_pressed(this)"></button></td>
+					<td><button class="button" id="Bit_12" onclick="button_pressed(this)"></button></td>
+					<td><button class="button" id="Bit_13" onclick="button_pressed(this)"></button></td>
+					<td><button class="button" id="Bit_14" onclick="button_pressed(this)"></button></td>
+					<td><button class="button" id="Bit_15" onclick="button_pressed(this)"></button></td>
+					<td><button class="button" id="Bit_16" onclick="button_pressed(this)"></button></td>
+					<td><button class="button" id="Bit_17" onclick="button_pressed(this)"></button></td>
+					<td><button class="button" id="Bit_18" onclick="button_pressed(this)"></button></td>
+					<td><button class="button" id="Bit_19" onclick="button_pressed(this)"></button></td>
+					<td><button class="button" id="Bit_20" onclick="button_pressed(this)"></button></td>
+				</tr>
+				<tr>
+					<td>&nbsp;</td>
+				</tr>
+				<tr class="anz_lampe_tr">
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td class="anz_lampe_td"><span class = "lamp_off" id="Lamp_21">&nbsp;&nbsp;</span></td>
+					<td class="anz_lampe_td"><span class = "lamp_off" id="Lamp_22">&nbsp;&nbsp;</span></td>
+					<td class="anz_lampe_td"><span class = "lamp_off" id="Lamp_23">&nbsp;&nbsp;</span></td>
+					<td class="anz_lampe_td"><span class = "lamp_off" id="Lamp_24">&nbsp;&nbsp;</span></td>
+					<td class="anz_lampe_td"><span class = "lamp_off" id="Lamp_25">&nbsp;&nbsp;</span></td>
+					<td class="anz_lampe_td"><span class = "lamp_off" id="Lamp_26">&nbsp;&nbsp;</span></td>
+					<td class="anz_lampe_td"><span class = "lamp_off" id="Lamp_27">&nbsp;&nbsp;</span></td>
+					<td class="anz_lampe_td"><span class = "lamp_off" id="Lamp_28">&nbsp;&nbsp;</span></td>
+					<td class="anz_lampe_td"><span class = "lamp_off" id="Lamp_29">&nbsp;&nbsp;</span></td>
+					<td style="width: 30px">&nbsp;</td>
+					<td style="width: 30px">&nbsp;</td>
+					<td>&nbsp;</td>
+					<td class="anz_lampe_td"><span class = "lamp_off" id="Lamp_30">&nbsp;&nbsp;</span></td>
+					<td class="anz_lampe_td"><span class = "lamp_off" id="Lamp_31">&nbsp;&nbsp;</span></td>
+					<td class="anz_lampe_td"><span class = "lamp_off" id="Lamp_32">&nbsp;&nbsp;</span></td>
+					<td class="anz_lampe_td"><span class = "lamp_off" id="Lamp_33">&nbsp;&nbsp;</span></td>
+					<td class="anz_lampe_td"><span class = "lamp_off" id="Lamp_34">&nbsp;&nbsp;</span></td>
+					<td class="anz_lampe_td"><span class = "lamp_off" id="Lamp_35">&nbsp;&nbsp;</span></td>
+					<td class="anz_lampe_td"><span class = "lamp_off" id="Lamp_36">&nbsp;&nbsp;</span></td>
+					<td class="anz_lampe_td"><span class = "lamp_off" id="Lamp_37">&nbsp;&nbsp;</span></td>
+					<td class="anz_lampe_td"><span class = "lamp_on"  id="Lamp_38">&nbsp;&nbsp;</span></td>
+					<td>&nbsp;</td>
+				</tr>
+				<tr>
+					<td class="anz_beschr_table">&nbsp;</td>
+					<td class="anz_beschr_table">&nbsp;</td>
+					<td class="anz_beschr_table">16</td>
+					<td class="anz_beschr_table">8</td>
+					<td class="anz_beschr_table">4</td>
+					<td class="anz_beschr_table">2</td>
+					<td class="anz_beschr_table">1</td>
+					<td class="anz_beschr_table">4096</td>
+					<td class="anz_beschr_table">2048</td>
+					<td class="anz_beschr_table">1024</td>
+					<td class="anz_beschr_table">512</td>
+					<td style="width: 30px">&nbsp;</td>
+					<td style="width: 30px">&nbsp;</td>
+					<td class="anz_beschr_table">&nbsp;</td>
+					<td class="anz_beschr_table">256</td>
+					<td class="anz_beschr_table">128</td>
+					<td class="anz_beschr_table">64</td>
+					<td class="anz_beschr_table">32</td>
+					<td class="anz_beschr_table">16</td>
+					<td class="anz_beschr_table">8</td>
+					<td class="anz_beschr_table">4</td>
+					<td class="anz_beschr_table">2</td>
+					<td class="anz_beschr_table">1</td>
+					<td class="anz_beschr_table">&nbsp;</td>
+				</tr>
+				<tr>
+					<td class="anz_beschr_table">&nbsp;</td>
+					<td class="anz_beschr_table">&nbsp;</td>
+					<td class="anz_beschr_table" colspan="4">Schnellspeicher-Adresse</td>
+					<td class="anz_beschr_table">&nbsp;</td>
+					<td class="anz_beschr_table" colspan="4">Trommelspeicher-Adresse</td>
+					<td style="width: 30px">&nbsp;</td>
+					<td style="width: 30px">&nbsp;</td>
+					<td class="anz_beschr_table">&nbsp;</td>
+					<td class="anz_beschr_table" colspan="9">Trommelspeicher-Adresse</td>
+					<td class="anz_beschr_table">&nbsp;</td>
+				</tr>
+				<tr>
+					<td><button class="button_black" id="Button_Release_3" onclick="button_pressed(this)"></button></td>
+					<td><button class="button"></button></td>
+					<td><button class="button" id="Bit_21" onclick="button_pressed(this)"></button></td>
+					<td><button class="button" id="Bit_22" onclick="button_pressed(this)"></button></td>
+					<td><button class="button" id="Bit_23" onclick="button_pressed(this)"></button></td>
+					<td><button class="button" id="Bit_24" onclick="button_pressed(this)"></button></td>
+					<td><button class="button" id="Bit_25" onclick="button_pressed(this)"></button></td>
+					<td><button class="button_yellow" id="Bit_26" onclick="button_pressed(this)"></button></td>
+					<td><button class="button" id="Bit_27" onclick="button_pressed(this)"></button></td>
+					<td><button class="button" id="Bit_28" onclick="button_pressed(this)"></button></td>
+					<td><button class="button" id="Bit_29" onclick="button_pressed(this)"></button></td>
+					<td style="width: 30px">&nbsp;</td>
+					<td style="width: 30px">&nbsp;</td>
+					<td><button class="button_black" id="Button_Release_4" onclick="button_pressed(this)"></button></td>
+					<td><button class="button_yellow" id="Bit_30" onclick="button_pressed(this)"></button></td>
+					<td><button class="button_yellow" id="Bit_31" onclick="button_pressed(this)"></button></td>
+					<td><button class="button_yellow" id="Bit_32" onclick="button_pressed(this)"></button></td>
+					<td><button class="button" id="Bit_33" onclick="button_pressed(this)"></button></td>
+					<td><button class="button" id="Bit_34" onclick="button_pressed(this)"></button></td>
+					<td><button class="button" id="Bit_35" onclick="button_pressed(this)"></button></td>
+					<td><button class="button_yellow" id="Bit_36" onclick="button_pressed(this)"></button></td>
+					<td><button class="button_yellow" id="Bit_37" onclick="button_pressed(this)"></button></td>
+					<td><button class="button_pressed" id="Bit_38" onclick="button_pressed(this)"></button></td>
+					<td><button class="button"></button></td>
+				</tr>
+				<tr>
+					<td class="anz_beschr_table">&nbsp;</td>
+					<td class="anz_beschr_table">&nbsp;</td>
+					<td class="anz_beschr_table">&nbsp;	</td>
+					<td class="anz_beschr_table">&nbsp;</td>
+					<td class="anz_beschr_table">&nbsp;</td>
+					<td class="anz_beschr_table">&nbsp;</td>
+					<td class="anz_beschr_table">&nbsp;</td>
+					<td class="anz_beschr_table">8</td>
+					<td class="anz_beschr_table">4</td>
+					<td class="anz_beschr_table">2</td>
+					<td class="anz_beschr_table">1</td>
+					<td style="width: 30px">&nbsp;</td>
+					<td style="width: 30px">&nbsp;</td>
+					<td class="anz_beschr_table">&nbsp;</td>
+					<td class="anz_beschr_table">8</td>
+					<td class="anz_beschr_table">&nbsp;</td>
+					<td class="anz_beschr_table">4</td>
+					<td class="anz_beschr_table">2</td>
+					<td class="anz_beschr_table">1</td>
+				</tr>
+				<tr>
+					<td>&nbsp;</td>
+				</tr>
+				<tr>
+					<td class="anz_beschr_table">&nbsp;</td>
+					<td class="anz_beschr_table">&nbsp;</td>
+					<td class="anz_beschr_table">Start</td>
+					<td class="anz_beschr_table">&nbsp;</td>
+					<td class="anz_beschr_table">&nbsp;</td>
+					<td class="anz_beschr_table">&nbsp;</td>
+					<td class="anz_beschr_table" colspan="3">Befehls&uuml;bernahme</td>
+					<td class="anz_beschr_table">&nbsp;</td>
+					<td class="anz_beschr_table">&nbsp;</td>
+					<td style="width: 30px">&nbsp;</td>
+					<td style="width: 30px">&nbsp;</td>
+					<td class="anz_beschr_table">&nbsp;</td>
+					<td class="anz_beschr_table">&nbsp;</td>
+					<td class="anz_beschr_table" colspan="3">Weiter</td>
+					<td class="anz_beschr_table">&nbsp;</td>
+					<td class="anz_beschr_table">&nbsp;</td>
+					<td class="anz_beschr_table">&nbsp;</td>
+					<td class="anz_beschr_table">Stop</td>
+					<td class="anz_beschr_table">&nbsp;</td>
+					<td class="anz_beschr_table">&nbsp;</td>
+				</tr>
+				<tr>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td><button class="button_green" id="Start" onclick="button_pressed(this)"></button></td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td colspan="3"><button class="button_orange" id="Befehlsuebernahme" onclick="button_pressed(this)"></button></td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td style="width: 30px">&nbsp;</td>
+					<td style="width: 30px">&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td colspan="3"><button class="button_orange" id="Weiter" onclick="button_pressed(this)"></button></td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td><button class="button_red" id="Stop" onclick="button_pressed(this)"></button></td>
+				</tr>
+			</table>
+
+			<!-- ****************************************************************************************** -->
+			<p>
+				<textarea readonly class="register_display_textarea" id="register_display" rows="3" cols="112"> 
+				</textarea>
+			<h2>
+				Zuse Z22 - Programmgesteuerte elektronische Rechenanlage
+			</h2>
+			<h3>
+				Emulator by Norbert Kehrer in October 2018 (<a href="http://members.aon.at/nkehrer">http://members.aon.at/nkehrer</a>).		
+			</h3>
+
+		</div>
+
+		<!-- ****************************************************************************************** -->
+		<!-- Lochstreifenabtaster  -->
+		<!-- ****************************************************************************************** -->
+		<div class="tabContent" id="tabContent2">
+
+			<table class="blackTable">
+				<tr>
+					<td>
+						<textarea onkeydown="if(event.keyCode===9){var v=this.value,s=this.selectionStart,e=this.selectionEnd;this.value=v.substring(0, s)+'\t'+v.substring(e);this.selectionStart=this.selectionEnd=s+1;return false;}" class="tapereader_textarea" id="tapereader_textarea" rows="32" cols="132"> 
+						</textarea>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<table class="blackTable">
+							<tr>
+								<td>
+									Lochstreifen / Paper tape
+								</td>
+								<td>
+									<select id="program_selection">
+										<option value="hello">"Hello world" by Norbert Kehrer</option>
+										<option value="trigo">Trigonometric functions by Zuse KG</option>
+										<option value="dotpr">Dot product of vectors by Zuse KG</option>
+										<option value="mmult">Matrix multiplication by Zuse KG</option>
+										<option value="runge">Runge-Kutta method by Zuse KG</option>
+										<option value="optics">Optics example by Zuse KG</option>
+										<option value="roots">Polynomial roots by Zuse KG</option>
+										<option value="gauss_seidel">Linear equation solver by F.-R. G&uuml;ntsch</option>
+									</select>
+								</td>
+								<td>
+									<button type="button" id="Load" onclick="button_pressed(this)">Load / Laden</button>
+								</td>
+								<td>
+									<button type="button" id="Insert" onclick="button_pressed(this)">Insert tape / Streifen einlegen</button>
+								</td>
+								<td>
+									Position: <span id="tape_pos">0/0</span>
+								</td>
+
+							</tr>
+						</table>
+					</td>
+				</tr>
+			</table>
+
+
+
+		</div>
+
+		<!-- ****************************************************************************************** -->
+		<!-- Fernschreiber  -->
+		<!-- ****************************************************************************************** -->
+		<div class="tabContent" id="tabContent3">
+			<table class="blackTable">
+				<tr>
+					<td>
+						<textarea readonly class="teleprinter_textarea" id="teleprinter_textarea" rows="32" cols="132">
+						</textarea>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<button type="button" id="Clear" onclick="button_pressed(this)">Clear / L&ouml;schen</button>
+					</td>
+				</tr>
+			</table>
+		</div>
+
+		<!-- ****************************************************************************************** -->
+		<!-- About  -->
+		<!-- ****************************************************************************************** -->
+		<div class="tabContent" id="tabContent9">
+			<h1>
+				Emulator of the Zuse Z22 computer
+			</h1>
+
+			This is an emulator of the Zuse Z22 computer written in JavaScript by Norbert Kehrer
+			in October 2018 (<a href="http://members.aon.at/nkehrer">http://members.aon.at/nkehrer</a>).
+
+			<h2>
+				Quick start to running a program
+			</h2>
+
+			To run programs do the following:
+			<ol>
+				<li>Go to the "punched tape reader" tab.</li>
+				<li>Load one of the example programs by selecting it in the program drop down menu and press "Load". Or, type in your own program in the editor area.</li>
+				<li>Press "Insert Tape".</li>
+				<li>Go to the "control panel" tab.</li>
+				<li>Press "Befehls&uuml;bernahme".</li>
+				<li>Press "Start" to read the program from the paper tape into the computer.</li>
+				<li>Press "Start" again to execute the program.</li>
+				<li>Go to the "teleprinter" tab to view the output of the program.</li>
+			</ol>
+		
+			<h2>
+				Learn how to program the machine
+			</h2>
+			
+			Very cool sites to learn about the Z22 computer and how to program it are:
+			<ul>
+				<li><a href="http://museum.informatik.uni-kl.de/Rechner/Zuse/Z22/">R. Kirchner's great Z22 documents collection</a> at
+					the computer museum of the Department of Computer Science of the Technical University Kaiserslautern.</li>
+				<li><a href="https://www.wpavel.de/zuse/doku/doku_simu.php">Wolfgang Pavel's great Z22 pages </a> with his cool simulator wirtten in PHP.</li>
+			</ul>
+
+			<h2>
+				Have fun!<p>Norbert
+			</h2>
+
+		</div>
+
+
+
+	</body>
+</html>

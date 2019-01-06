@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Norbert</title>
+    <link rel="stylesheet" href="norbert.css">
+    <script src="norbert.js"></script>
+  </head>
+  <body>
+    <div id="page_content">
+<!-- *********************************************************************************************** -->
+
+
+
+
+<h2>My MAME driver for Super Tank</h2>
+
+
+
+
+
+	<h3>The Game Super Tank</h3>
+	The arcade game "Super Tank" was made in 1981 by the German company Video Games GmbH. It is a shooter
+	where you control a tank and have to clear a field of mines and bushes. You are chased by enemy tanks,
+	which fire at you. After wiping out all the mines and bushes, you reach the second level.
+	It is kind of a "boss" level, where you have to fight a big enemy tank, the Super Tank. You can destroy
+	it by a direct hit into its gun. As far as I know, Super Tank was sold in Germany, Austria, and other
+	European countries, and it was licensed to the company Computran for distribution in the US market.
+	<p>
+
+	<h3>The Company Video Games GmbH</h3>
+	Video Games GmbH (located in the town of Lich in Germany) started as an unauthorized bootleg manufacturer.
+	One example for this is the game Tornado, a bootleg of Defender. When the European countries changed 
+	their laws to protect the original creators, they started to develop their own arcade games.
+	However, only two original games from Video Games GmbH are known to exist:
+	Looping (licensed for the US market to Venture Line) and Super Tank. Video Games GmbH worked in partnership
+	with Amtec, a manufacturer located in Parma (Italy). Super Tank was licensed in the USA, because in Germany
+	the reproduction of war in a simulation product was forbidden. Thanks to Deb from Italy for all this
+	background information (web site <a href="http://www.tilt.it/deb/" target="_blank">www.tilt.it/deb/</a>).
+	<p>
+
+	I would be interested in more background information on the companies Video Games GmbH
+	and Computran. I would also like to know, in which other countries Super Tank machines were in the arcades.
+	If you know something about this, please send me an 
+	<a href="email.html">email</a>.
+	<p>
+	
+
+	<h3>My MAME Driver for Super Tank</h3>
+	On December 14, 2003 I finished my first and preliminary version of a MAME driver for Super Tank.
+	It was very hard to figure out, how all the hardware works. This reverse-engineering process took
+	me many days. I had practically no information about the hardware, no memory map, and not even schematics.
+	I ended up in writing my own stand-alone emulator for the game to do my testing, before I could convert it
+	to MAME.
+	<p>
+	Now, after I finally found out, how the video hardware really works, I see, that compared to other machines
+	it is rather simple! My respect to all the MAME developers, who wrote so many drivers for previously unemulated
+	systems, has become even bigger.
+	<p>
+	After I knew, how most of the things in Super Tank worked, it was really easy to make a MAME driver. The MAME
+	source code is so well-organized, that it is big fun to code a driver for it. Well, "coding" is the wrong
+	word. It is more like making only declarations on the machine hardware, and all the ugly procedural semantics
+	are hidden from you and solved in the huge macro and function libraries of the MAME programming framework.
+	Thanks to the MAME team for this great software.
+	<p>
+	On December 17, 2003 I got an email from Pierpaolo Prazzoli. He fixed a problem with the coinage DIP switches.
+	Thank you, Pierpaolo! After this, I had a closer look at my DIP switch definitions, and found another bug. The
+	bit for the extra tank and the one for the number of tanks were wrong. I corrected it and submitted the new
+	driver version again.
+	<p>
+	On December 24, 2003 there was an update to the official <a href="http://www.mame.net/status.html"
+	target="_blank">MAME WIP</a> site announcing my Super Tank driver. It read: "Norbert Kehrer submitted a
+	fully working driver for Super Tank". There were also 4 screenshots added. Nice to be on the official
+	MAME WIP page :-) Thanks!
+	<p>
+	On December 25, 2003 version 0.78 of the world's best arcade game emulator 
+	<a href="http://www.mame.net" target="_blank">MAME</a> was released. And it contains my Super Tank driver :-)
+	I made my first contribution to this great open source project. Looking back, this project was a lot of fun
+	for me. Thanks to the MAME core team for their excellent work and support.
+	<p>
+
+
+	<h3>The First Super Tank Screen Shots</h3>
+	Now let's have a look at the first screen shots from my Super Tank driver :-)
+	<p>
+	The title screen and the "insert coins" screen:
+	<table><tr><td align="center">
+	<img src="supertnk/supertnk_title.png" alt="Super Tank (c) 1981 Video Games GmbH">
+	<img src="supertnk/supertnk_insrt.png" alt="Super Tank (c) 1981 Video Games GmbH">
+	</td></tr></table>
+
+	<p>
+	The game start screen:
+	<table><tr><td align="center">
+	<img src="supertnk/supertnk_start.png" alt="Super Tank (c) 1981 Video Games GmbH">
+	</td></tr></table>
+
+	<p>
+	Some screen shots from the running game (first level):
+	<table><tr><td>
+	<img src="supertnk/supertnk_game_1.png" alt="Super Tank (c) 1981 Video Games GmbH">
+	<img src="supertnk/supertnk_game_2.png" alt="Super Tank (c) 1981 Video Games GmbH">
+	<img src="supertnk/supertnk_game_3.png" alt="Super Tank (c) 1981 Video Games GmbH">
+	<img src="supertnk/supertnk_game_4.png" alt="Super Tank (c) 1981 Video Games GmbH">
+	<img src="supertnk/supertnk_game_5.png" alt="Super Tank (c) 1981 Video Games GmbH">
+	<img src="supertnk/supertnk_game_6.png" alt="Super Tank (c) 1981 Video Games GmbH">
+	</td></tr></table>
+
+	<p>
+	More screen shots from the running game (level 2):
+	<table><tr><td align="center">
+	<img src="supertnk/supertnk_game_7.png" alt="Super Tank (c) 1981 Video Games GmbH">
+	<img src="supertnk/supertnk_game_8.png" alt="Super Tank (c) 1981 Video Games GmbH">
+	</td></tr></table>
+
+	<p>
+	The "Super Tank" in action:
+	<table><tr><td>
+	<img src="supertnk/supertnk_suptnk_1.png" alt="Super Tank (c) 1981 Video Games GmbH">
+	<img src="supertnk/supertnk_suptnk_2.png" alt="Super Tank (c) 1981 Video Games GmbH">
+	<img src="supertnk/supertnk_suptnk_3.png" alt="Super Tank (c) 1981 Video Games GmbH">
+	<img src="supertnk/supertnk_suptnk_4.png" alt="Super Tank (c) 1981 Video Games GmbH">
+	<img src="supertnk/supertnk_suptnk_5.png" alt="Super Tank (c) 1981 Video Games GmbH">
+	<img src="supertnk/supertnk_suptnk_6.png" alt="Super Tank (c) 1981 Video Games GmbH">
+	<img src="supertnk/supertnk_suptnk_7.png" alt="Super Tank (c) 1981 Video Games GmbH">
+	<img src="supertnk/supertnk_suptnk_8.png" alt="Super Tank (c) 1981 Video Games GmbH">
+	<img src="supertnk/supertnk_suptnk_9.png" alt="Super Tank (c) 1981 Video Games GmbH">
+	</td></tr></table>
+
+	<p>
+	The Super Tank is destroyed:
+	<table><tr><td align="center">
+	<img src="supertnk/supertnk_suptnk_10.png" alt="Super Tank (c) 1981 Video Games GmbH">
+	<img src="supertnk/supertnk_suptnk_11.png" alt="Super Tank (c) 1981 Video Games GmbH">
+	</td></tr></table>
+
+
+	<p>
+	Game over (but I still have some quarters left :-):
+	<table><tr><td align="center">
+	<img src="supertnk/supertnk_gamovr_1.png" alt="Super Tank (c) 1981 Video Games GmbH">
+	<img src="supertnk/supertnk_gamovr_2.png" alt="Super Tank (c) 1981 Video Games GmbH">
+	</td></tr></table>
+
+
+
+
+<!-- *********************************************************************************************** -->
+    </div>
+  </body>
+</html>

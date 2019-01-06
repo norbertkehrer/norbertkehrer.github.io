@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Norbert</title>
+    <link rel="stylesheet" href="norbert.css">
+    <script src="norbert.js"></script>
+  </head>
+  <body>
+    <div id="page_content">
+<!-- *********************************************************************************************** -->
+
+
+
+
+
+<h2>Binary Translated Arcade Games</h2>
+
+
+
+	<h3>Classic Arcade Games in Java by Static Binary Translation</h3>
+
+	This section contains my translations of classic arcade games to Java applets. I used a technique
+	called static binary translation (SBT) or sometimes static binary recompilation to generate
+	Java programs from the original arcade game program. In an emulator, as e.g. in JAE or MAME,
+	the emulation engine interprets the game program instruction by instruction, and for each instruction
+	performs the actions associated with it during run-time. With SBT all the game program is translated
+	at once to a semantically equivalent Java program. This program then usually runs faster than the
+	emulated version of the game, because the overhead of interpreting each instruction during run-time
+	is eliminated.
+
+
+ 	<br>
+	<br>
+	[3] <a href="sbt/Asteroids.html" target="_blank">Asteroids (Atari 1979):</a>
+	The arcade game Asteroids is a true arcade classic and was originally written by
+	Ed Logg of Atari Inc. in 1979. It was the first arcade game I ever played.
+	<br>
+	This Java version was created 26 years later by translating the program code,
+	originally written for the 6502 CPU of the Asteroids machine, to Java.
+	The translation was made by a Java program I wrote, which generates corresponding
+	Java program code for each 6502 instruction and applies some optimization techniques
+	to the generated program (e.g., removal of redundant flag calculations).
+	<br>
+	This project is open source and you can download a zip file with the applet ready for installation on your
+	PC or website and with the complete source code in Java.
+	<br>
+	Click <a href="sbt/Asteroids.html" target="_blank">here</a> to play Asteroids now.
+	<br>
+	Download the game from <a href="sbt/Asteroids.zip" target="_blank">here</a>, but please do not
+	forget to credit Atari for the original game and me for translating it to Java :-)
+
+
+
+
+ 	<br>
+	<br>
+	[2] <a href="sbt/AstroFighter.html" target="_blank">Astro Fighter (DECO 1980):</a>
+	The arcade game Astro Fighter was originally written by Data East Corporation (DECO) in 1980.
+	It was one of the first arcade games I ever played, though the version
+	we had in our pub was called Astro Wars (bootlegged or made under license by
+	the company Zaccaria).
+	<br>
+	This Java version was created by translating the Astro Fighter program code,
+	originally written for the 6502 CPU of the Astro Fighter machine, to Java.
+	The translation was made by a program, which generates	corresponding Java program code for
+	each 6502 instruction and applies some optimization techniques to the generated program
+	(e.g., removal of redundant flag calculations).
+	<br>
+	This project is open source and you can download a zip file with the applet ready for installation on your
+	PC or website and with the complete source code in Java.
+	<br>
+	Click <a href="sbt/AstroFighter.html" target="_blank">here</a> to play Astro Fighter now.
+	<br>
+	Download the game from <a href="sbt/AstroFighter.zip" target="_blank">here</a>, but please do not
+	forget to credit DECO for the original game and me for translating it to Java :-)
+
+
+ 	<br>
+	<br>
+	[1] <a href="sbt/Tailgunner.html" target="_blank">Tailgunner (Vectorbeam/Cinematronics 1979):</a>
+	Tailgunner is a nice vector game made by Dan Sunday of the company Vectorbeam in 1979. Vectorbeam and
+	the game were sold to Cinematronics later. Tailgunner was very advanced for its time. It is probably
+	the first 3D vector game (older than Battlezone). The exact reproduction of the game is not
+	achieved by a conventional CPU emulator, but by so-called static binary recompilation.
+	<a href="http://www.gtoal.com" target="_blank">Graham Toal</a> wrote a really cool program, which can
+	translate the original game code from C-CPU machine language to C. With Graham's help I ported his generated
+	code to Java and added the graphical Java environment to play the game in an applet.
+	Thank you Graham, it was a cool project.
+	<br>
+	This project is open source and you can download a zip file with the applet ready for installation on your
+	PC or website and with the complete source code in Java.
+	<br>
+	Click <a href="sbt/Tailgunner.html" target="_blank">here</a> to play Tailgunner now.
+	<br>
+	Download the game from <a href="sbt/Tailgunner.zip" target="_blank">here</a>.
+
+
+<!-- *********************************************************************************************** -->
+    </div>
+  </body>
+</html>
+
+
+
+
+

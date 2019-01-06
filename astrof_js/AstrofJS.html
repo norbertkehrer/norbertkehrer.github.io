@@ -1,0 +1,73 @@
+<html>
+	<head>
+		<title>
+		Norbert Kehrer's Static Binary Translation of Astro Figher to JavaScript
+		</title>
+
+	</head>
+
+	<body id="" onkeydown="keyPressed(event)" onkeyup="keyReleased(event)" bgColor = "#888888">
+
+		<audio src="sound/coin.wav"     id="coin"     autostart="false"></audio>
+		<audio src="sound/fire.wav"     id="fire"     autostart="false"></audio>
+		<audio src="sound/ekilled.wav"  id="ekilled"  autostart="false"></audio>
+		<audio src="sound/wave1.wav"    id="wave1"    autostart="false" loop></audio>
+		<audio src="sound/wave2.wav"    id="wave2"    autostart="false" loop></audio>
+		<audio src="sound/wave3.wav"    id="wave3"    autostart="false" loop></audio>
+		<audio src="sound/wave4.wav"    id="wave4"    autostart="false" loop></audio>
+		<audio src="sound/bossfire.wav" id="bossfire" autostart="false"></audio>
+		<audio src="sound/fuel.wav"     id="fuel"     autostart="false"></audio>
+		<audio src="sound/death.wav"    id="death"    autostart="false"></audio>
+		<audio src="sound/bosshit.wav"  id="bosshit"  autostart="false"></audio>
+		<audio src="sound/bosskill.wav" id="bosskill" autostart="false"></audio>
+
+		<font color="#000000" size="3" face="Arial">
+
+		<table border=0>
+			<tr>
+				<td align=center width=710>
+					<canvas id="myCanvas" width="512" height="512" style="border:2px solid #000000;">
+					</canvas> 
+				<td align=center>
+					<table width=320>
+						<tr>
+							<td height=10>
+						<tr align=left>
+							<td>
+								<img src="m_astrof.jpg"> <p>
+						<tr align=left height=412>
+							<td>
+								<font color="#000000" size="5" face="Arial">
+								Astro Fighter in JavaScript<p>
+								<font color="#000000" size="3" face="Arial">
+								Original game by Data East in 1980.<p>
+								Exact port of the original to JavaScript 
+								using the method of static binary translation
+								in March 2015 by Norbert Kehrer.
+								<p>
+								Read more about it on my homepage at
+								<a href="http://members.aon.at/~nkehrer/">http://members.aon.at/~nkehrer/</a>  
+								<p>
+								<u>Keys to play:</u><br>
+								<table border=0>
+									<tr><td width = 130>Left	<td>Crsr Left, Z, or Y<br>
+									<tr><td>Right		<td>Right or X<br>
+									<tr><td>Fire		<td>Ctrl or M
+									<tr><td>Start 1 Player	<td>1
+									<tr><td>Start 2 Players	<td>2
+									<tr><td>Insert Coin	<td>5, or 6, or 7
+									<tr><td>Pause Game	<td>P
+								</table>
+					</table>
+
+		</table>
+
+
+		<script type="text/javascript" src="Astrof.js">
+		</script>
+
+
+
+
+	</body>
+</html>

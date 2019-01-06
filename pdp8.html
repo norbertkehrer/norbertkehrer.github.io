@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Norbert</title>
+    <link rel="stylesheet" href="norbert.css">
+    <script src="norbert.js"></script>
+  </head>
+  <body>
+    <div id="page_content">
+<!-- *********************************************************************************************** -->
+
+
+
+
+<h2>The Atari PDP-8 Emulator</h2>
+
+
+
+The Atari PDP-8 emulator is an emulator of DEC's PDP-8 minicomputer from 1965
+running on an Atari 800XL. I wrote this program for the
+<a href="http://www.abbuc.de/index.php/de/atari/software-ressort/101-software-contest-2011">
+ABBUC Software Contest 2011</a>, where it reached the fifth place.
+
+<p>
+
+The program can be downloaded as an ATR file here: <a href="pdp8/pdp8emu.atr">pdp8emu.atr</a>
+
+<p>
+
+You can watch a video of the emulator running the chess programm CHEKMO-II here (thanks to Thorsten):
+
+<p>
+
+<object style="height: 390px; width: 640px">
+<param name="movie" value="http://www.youtube.com/v/Rp4HIC1crS0?version=3&feature=player_detailpage">
+<param name="allowFullScreen" value="true">
+<param name="allowScriptAccess" value="always">
+<embed src="http://www.youtube.com/v/Rp4HIC1crS0?version=3&feature=player_detailpage" type="application/x-shockwave-flash" allowfullscreen="true" allowScriptAccess="always" width="640" height="360">
+</object>
+
+<p>
+
+In the following you will find a description on how to use the emulator in English and German.
+
+<p>
+ 
+<pre>
+
+*************   E N G L I S H   D E S C R I P T I O N   *************
+
+
+1. The PDP-8 minicomputer
+=========================
+
+In the year 1965 the US company Digital Equipment Corporation (DEC)
+placed one of the first reasonably affordable computers on the market.
+It was the Programmed Data Processor 8 (abbreviated PDP-8). Being
+a so-called minicomputer, the PDP-8 was very successful and was for DEC
+the starting point for further developments. In the PDP series DEC 
+launched machines like the PDP-10, on which the C programming language
+and the first adventure game were developed, or the extremly successful
+PDP-11, on which the first Unix was written.
+
+The PDP-8 was based on machine words with 12 bits and had at the
+beginning a main memory capacity of 4,096 words, extendable to 32,768
+words. In the early years of the PDP-8 mainly teletypes like the famous
+ASR-33 were used as I/O devices. Later, also simple CRT terminals were
+available. For loading and saving programs first only paper tapes, and
+later also floppy disks, magnetic tapes, and hard disks were used.
+
+
+
+
+2. PDP-8 emulator on the Atari 800XL
+====================================
+
+This program emulates the PDP-8 on the Atari 800XL. The Atari computer
+simulates the PDP's machine instructions, and the PDP-8 teletype is
+represented by the keybaord and screen of the Atari. In favor of
+execution speed I did not implement the maximum PDP-8 memory capacity,
+but limited the emulator to 16,384 words, which is enough for many
+PDP-8 applications, though.
+
+Even if the Atari is approximately 20 years younger than the PDP-8,
+full speed emulation could not be reached. For a lot of PDP-8 programs
+this will not be a big problem. When running computation-intensive software,
+like e.g. the chess program, the slow speed is clearly noticeable, though.
+
+In the current emulator version no external storage media like paper
+tapes or floppy disks are supported. But you can load programs stored as
+PDP-8 binary code in DEC's BIN format and execute them on the Atari 800XL.
+The PDP-8 operator console, which had switches and lights to read and
+manipulate register and memory contents, is not yet emulated.
+
+
+
+
+3. Using the emulator
+=====================
+
+The emulator program itself is available on an Atari DOS disk and is
+called "PDP8.XEX". Before starting this program you have to place the
+PDP-8 software, you wish to run, on the same floppy disk. This can be
+done e.g. via the Mac or PC using programs like "AtrUtil" or "makeATR".
+
+After starting "PDP8.XEX" on the Atari the program asks you for the 
+PDP-8 software you would like to load. If you have e.g. the PDP chess
+program under the name "CHESS.BIN" on your Atari floppy disk,
+you now have to enter this name. Then, the emulator asks for the
+PDP-8 address at which the loaded program is to be started. Following
+the convention in the PDP world, this address has to be entered as an
+octal number. For the chess program, as well as for many others, the
+starting address is "0200". After entering this address, the emulator
+loads the PDP-8 program into main memory and starts interpreting it.
+All input and output, which the program on an original PDP would
+expect from or print to the teletype, is made visible on the screen
+or has to be entered on the keyboard, respectively.
+
+
+
+
+4. Short user guides to some PDP-8 programs
+===========================================
+
+
+
+a) Overview
+-----------
+
+The emulator has been tested with the following PDP-8 software:
+
+Program                                     File name    Start address
+----------------------------------------------------------------------
+Chess game                                  CHESS.BIN    0200
+Programming language FOCAL (Version 1969)   FOCAL69.BIN  0200
+Programming language FOCAL (Version 1971)   FOCAL71.BIN  0200
+Programming language LISP                   LISP3.BIN    13000
+
+In the following three sections a short introduction to the first steps
+with these programs will be provided. On each of the programs you can
+easily find extensive documentation on the internet e.g. via Google.
+
+
+
+b) Chess program CHEKMO-II
+--------------------------
+
+
+After the welcome message you get the prompt "W. YOUR MOVE?", and you
+can then enter a move or a command. With the command "BD" you can
+print out "graphically" the current status of the chess board. Another
+important command is "BM" to switch the program to "Blitz mode", which
+makes the computer play weaker but much faster.
+
+The first move can then e.g. be entered as "D2-D4". The computer
+answers with "B. YOUR MOVE?", meaning that now black can make a move.
+Your human partner can then enter his move, or you can type the command
+"PB" (play black) to make the computer your opponent. Even when you are
+in Blitz mode, the computer now needs a very long time to calculate its
+next move (emulation on a 1 MHz 6502 is too slow here). You should expect
+2-3 minutes of time you have to wait for the answer. After that you can
+enter your next move. The board can be printed at any time using the
+command "PB".
+
+
+
+
+c) Programming language FOCAL
+-----------------------------
+
+FOCAL is a BASIC-like programming language, which was very common on the
+PDP machines. After the welcome message, the FOCAL interpreter asks if
+certain functions should be available in the current session. For the
+first tests you should answer "NO" to all questions like "SHALL I RETAIN
+LOG, EXP, ATN ?". After that, an asterisk "*" appears as the prompt. 
+The FOCAL instruction "TYPE" or abbreviated "T" corresponds to the BASIC
+command "PRINT". So, when you enter e.g. "TYPE 3+4*5", "23" will be
+printed on the teletype (or the Atari's screen).
+
+FOCAL programs have line numbers, which are structured with a ".". As an
+example, the numbers from 1 to 10 and their squares will be printed with
+the following FOCAL program, which you can directly enter on the command
+line:
+
+01.01 FOR I=1,1,10; TYPE I,I*I,!
+
+To list a program type "WRITE ALL", to start it use "GO".
+
+
+
+d) Programming language LISP
+----------------------------
+
+For the PDP-8 also a version of the functional programming language LISP
+was available. The language was especially well-suited for artificial
+intelligence applications and is still widely used today. The PDP-8
+implementation uses the original syntax of John McCarthy, the inventor
+of the LISP language, which differs slightly from modern versions of LSIP.
+
+An expression entered in the command line is evaluated by the LISP
+interpreter and the result is printed.
+
+Examples for inputs and outputs:
+
+PLUS (19 7)          --> 26
+MINUS (2011 1966)    --> 45
+TIMES (7 6)          --> 42
+
+Programming is done by defining new functions using existing ones.
+E.g. a new function SQUARE can be defined, which calculates the square
+of a number:
+
+DEFINE (((SQUARE (LAMBDA (X) (TIMES X X)))))
+
+After entering this you can immediately use the new function:
+
+SQUARE (7)          --> 49
+
+A hint on using the LISP interpreter: Wenn there is seemingly no reaction
+on your input, just enter a few closing brackets ")" and press "Enter".      
+
+Have fun!
+
+Norbert
+
+
+
+*************   G E R M A N   D E S C R I P T I O N   *************
+
+
+1. Der Minirechner PDP-8
+========================
+
+Im Jahr 1965 brachte die US-Firma Digital Equipment Corporation (DEC)
+einen der ersten Computer, den sich auch eine breitere K&auml;uferschicht
+leisten konnte, auf den Markt. Es war dies der Programmed Data
+Processor-8, oder abgek&uuml;rzt PDP-8. Die PDP-8 war als sogenannter
+Minirechner sehr erfolgreich und f&uuml;r die Firma DEC der Ausgangspunkt
+weiterer Entwicklungen. Es folgten in der PDP-Reihe u.a. die PDP-10,
+auf der das erste Unix, die Programmiersprache C und das erste
+Adventure-Game entwickelt wurden, und die h&ouml;chst erfolgreiche PDP-11.
+
+Die PDP-8 hatte eine Wortbreite von 12 Bit und hatte zu Beginn einen
+Hauptspeicher von 4.096 Worten. Im Maximalausbau waren 32.768 Worte
+m&ouml;glich. Als Ein-/Ausgabe-Ger&auml;te waren in der Anfangszeit der PDP-8
+vor allem Fernschreiber (ASR-33 Teletype) gebr&auml;uchlich, wo die Eingabe
+&uuml;ber Tastatur und die Ausgabe vom Rechner als Ausdruck auf Endlospapier
+erfolgte. Sp&auml;ter kamen auch einfache Bildschirmterminals dazu. F&uuml;r das
+Speichern und Laden von Programmen und Daten waren Lochstreifen aus
+Papier vorgesehen, erst sp&auml;ter folgten auch Disketten-, Magnetband-
+und Festplattenlaufwerke.
+
+
+
+
+2. PDP-8-Emulator auf dem Atari 800XL
+=====================================
+
+Das vorliegende Programm emuliert die PDP-8 auf dem Atari 800 XL.
+Dabei simuliert der Atari die Maschinenbefehle der PDP-8 und der
+Fernschreiber wird durch Tastatur und Bildschirm des Atari ersetzt.
+Beim Speicherausbau musste zugunsten der Geschwindigkeit auf die
+Umsetzung des PDP-8-Maximalspeicherausbaus verzichtet werden. Der im
+Emulator bereitgestellte PDP-8-Hauptspeicher betr&auml;gt 16.384 Worte.
+
+Obwohl der Atari etwa 20 Jahre j&uuml;nger ist als die PDP-8, gelingt es
+nicht, bei der Emulation die volle Geschwindigkeit der PDP-8 zu
+erreichen. F&uuml;r viele PDP-8-Programme d&uuml;rfte das bei der Bedienung
+kein gro&szlig;es Problem darstellen, bei rechenintensiver Software, wie
+z.B. beim PDP-Schachprogramm, macht sich das nat&uuml;rlich st&auml;rker
+bemerkbar.
+
+Es werden in der derzeitigen Version des Emulators noch keine externen
+Speichermedien wie Lochstreifen oder Diskette unterst&uuml;tzt. Programme,
+die im PDP-8-Bin&auml;rcode im DEC-eigenen BIN-Format vorliegen, k&ouml;nnen aber
+geladen und auf dem Atari 800 XL ausgef&uuml;hrt werden. Auch die Konsole
+der PDP-8, auf der mit L&auml;mpchen Registerinhalte abgelesen und mit
+Kippschaltern Register und Speicherinhalte eingegeben werden k&ouml;nnen,
+ist zur Zeit noch nicht emuliert.
+
+
+
+
+3. Bedienung des Emulators
+==========================
+
+Der Emulator selbst liegt auf einer Atari-DOS-Diskette vor und hei&szlig;t
+"PDP8.XEX". Vor der Verwendung auf dem Atari m&uuml;ssen auf diese Diskette
+auch die gew&uuml;nschten PDP-8-Programme kopiert werden, z.B &uuml;ber den PC
+oder Mac mit Tools wie AtrUtil oder makeATR.
+
+Nach dem Starten von "PDP8.XEX" am Atari fragt das Programm nach dem
+zu ladenden PDP-8-Programm. Hat man z.B. auf seine Diskette das 
+PDP-Schachprogramm unter dem Namen "CHESS.BIN" aufgespielt, ist jetzt
+dieser Dateiname einzugeben. Danach fragt der Emulator nach der
+PDP-8-Adresse, an der das geladene Programm zu starten ist. Diese
+Adresse ist wie auf der PDP &uuml;blich als Oktalzahl einzugeben. F&uuml;r das
+Schachprogramm und viele weitere Programme lautet die Startadresse
+"0200". Nach Eingabe der Adresse l&auml;dt der Atari das PDP-8-Programm
+in den Speicher und startet die Emulation. Die Ausgaben und Eingaben,
+die das Programm auf einer Original-PDP-8 (unter betr&auml;chtlichem L&auml;rm)
+am Fernschreiber erzeugen bzw. erwarten w&uuml;rde, sind dann auf dem Atari
+am Schirm sichtbar bzw. auf der Tastatur einzugeben.
+
+
+
+
+4. Kurzanleitungen zu einigen PDP-8-Programmen
+==============================================
+
+
+
+a) &Uuml;bersicht
+------------
+
+Der Emulator wurde mit der folgenden PDP-8-Software getestet:
+
+Programm                                    Dateiname    Startadresse
+---------------------------------------------------------------------
+Schach                                      CHESS.BIN    0200
+Programmiersprache FOCAL (Version 1969)     FOCAL69.BIN  0200
+Programmiersprache FOCAL (Version 1971)     FOCAL71.BIN  0200
+Programmiersprache LISP                     LISP3.BIN    13000
+
+Es wird in den n&auml;chsten drei Abschnitten eine ganz kurze Einleitung zu
+den ersten Schritten mit diesen Programmen gegeben. Zu jedem der
+Programme gibt es im Internet umfangreiche Dokumentationen, die &uuml;ber
+Google leicht zu finden sind.
+
+
+
+b) Schachprogramm CHEKMO-II
+---------------------------
+
+Nach der Begr&uuml;&szlig;ungsmeldung folgt eine Eingabeaufforderung "W. YOUR
+MOVE?". Daraufhin ist ein Zug oder ein Befehl einzugeben. Mit dem
+Befehl "BD" wird das Schachbrett ausgegeben. Ein wichtiger Befehl ist
+"BM". Damit wird in den "Blitz mode" umgeschaltet, in dem das
+Schachprogramm schw&auml;cher aber viel schneller ist.
+
+Zum Ziehen kann man z.B. "D2-D4" eingeben. Der Rechner antwortet mit
+"B. YOUR MOVE?". Das hei&szlig;t, dass jetzt Schwarz (B=Black) ziehen muss.
+Man kann mit einem Partner, der jetzt seinen Zug eingibt, spielen,
+oder mit dem Befehl "PB" (play black) den Computer als Gegner w&auml;hlen.
+Der Rechner denkt dabei auch im Blitz-Modus sehr lange nach (Emulation
+auf einem 6502 mit 1 MHz ist hier einfach zu langsam). Man muss mit
+etwa 3-4 Minuten Wartezeit rechnen, bis der Zug des Computers
+ausgegeben wird. Mit "BD" kann man sich immer wieder das aktuelle
+Schachbrett ausdrucken lassen.
+
+
+
+c) Programmierprache FOCAL
+--------------------------
+
+FOCAL ist eine BASIC-&auml;hnliche Programmiersprache, die auf den
+PDP-Maschinen sehr verbreitet war. Nach der Begr&uuml;&szlig;ung fragt der FOCAL-
+Interpreter, ob bestimmte Funktionen (zu Lasten des verf&uuml;gbaren
+Speichers f&uuml;r FOCAL-Programme) zur Verf&uuml;gung gestellt werden sollen.
+Auf die Fragen "SHALL I RETAIN LOG, EXP, ATN ?" usw. f&uuml;r erste Tests
+immer mit "NO" antworten, dann erscheint ein "*" als
+Eingabeaufforderung. Der Befehl "TYPE" oder abgek&uuml;rzt "T" entspricht
+in FOCAL z.B. dem BASIC-Befehl PRINT. Nach "TYPE 3+4*5" wird daher
+z.B. "23" ausgegeben.
+
+FOCAL-Programme haben mit "." untergliederte Zeilennummern. Die Zahlen
+von 1 bis 10 und ihre Quadrate werden etwa mit folgendem Programm
+ausgegeben, das in der Kommandozeile eingegeben wird:
+
+01.01 FOR I=1,1,10; TYPE I,I*I,!
+
+Gelistet wird ein Programm mit "WRITE ALL", gestartet wird es mit "GO".
+
+
+
+d) Programmierprache LISP
+--------------------------
+
+Auf der PDP-8 gab es auch eine Version der funktionalen
+Programmiersprache LISP, die vor allem f&uuml;r Anwendungen der k&uuml;nstlichen
+Intelligenz im Einsatz war, und auch heute noch verbreitet ist. Das
+PDP-8-LISP bedient sich noch der urspr&uuml;nglichen LISP-Syntax des
+Lisp-Erfinders McCarthy.
+
+Ein Ausdruck wird in der Befehlszeile eingegeben, vom LISP-Interpreter
+ausgewertet und das Ergebnis ausgegeben.
+
+Beispiele f&uuml;r Ein- und Ausgaben:
+
+PLUS (19 7)          --> 26
+MINUS (2011 1966)    --> 45
+TIMES (7 6)          --> 42
+
+Programmiert wird &uuml;ber die Definition neuer Funktionen. Z.B. kann man
+eine neue Funktion SQUARE definieren, die das Quadrat einer Zahl
+berechnet:
+
+DEFINE (((SQUARE (LAMBDA (X) (TIMES X X)))))
+
+Damit kann die neue Funktion auch schon angewendet werden:
+
+SQUARE (7)          --> 49
+       
+Ein Tipp noch: Wenn keine Reaktion auf die Eingabe erfolgt, einige
+schlie&szlig;ende Klammern ")" eingeben und "Enter" Dr&uuml;cken.
+
+
+Viel Spa&szlig;!
+
+Norbert
+
+
+</pre>
+
+
+
+<!-- *********************************************************************************************** -->
+    </div>
+  </body>
+</html>

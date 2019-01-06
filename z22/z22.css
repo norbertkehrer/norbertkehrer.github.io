@@ -1,0 +1,223 @@
+﻿
+body {
+	background-color: 	Grey;
+	color:				White;
+	font-family: 		Sans-serif;
+	font-size: 			80%;
+}
+
+a {
+	color:				White;
+}
+
+select option {
+	font-family: 		Monospace;
+	background-color: 	Black;
+	color:				White;
+}
+
+.button {
+    background-color:	lightgray;
+    color:				black;
+    cursor: 			pointer;
+	border-style: 		outset;
+	width:				40px;
+	height:				40px;
+}
+
+.button_black {
+    background-color:	black;
+    color: 				black;
+    cursor: 			pointer;
+	border-style: 		outset;
+	width:				40px;
+	height:				40px;
+}
+
+.button_yellow {
+    background-color:	yellow;
+    color: 				black;
+    cursor: 			pointer;
+	border-style: 		outset;
+	width:				40px;
+	height:				40px;
+}
+
+.button_green {
+    background-color:	green;
+    color: 				black;
+    cursor: 			pointer;
+	border-style:		 outset;
+	width:				40px;
+	height:				40px;
+}
+
+.button_red {
+    background-color:	red;
+    color:				black;
+    cursor: 			pointer;
+	border-style: 		outset;
+	width:				40px;
+	height:				40px;
+}
+
+.button_orange {
+    background-color: 	orange;
+    color:				black;
+    cursor: 			pointer;
+	border-style: 		outset;
+	width:				130px;
+	height:				40px;
+}
+
+.button:hover {
+    background-color: grey;
+}
+
+.button_black:hover {
+    background-color: #333333;
+}
+
+.button_yellow:hover {
+    background-color: grey;
+}
+
+.button_green:hover {
+    background-color: darkgreen;
+}
+.button_red:hover {
+    background-color: darkred;
+}
+.button_orange:hover {
+    background-color: darkorange;
+}
+
+.button_pressed {
+    background-color: 	#333333;
+    color: 				black;
+    cursor: 			pointer;
+	border-style: 		inset;
+	width:				40px;
+	height:				40px;
+}
+
+.blackTable {
+	background-color: 	Black;
+}
+
+.anz_beschr_table {
+	border-collapse:	collapse;
+	text-align:			center;
+}
+
+.anz_lampe_tr {
+	text-align:			center;
+	width:				20px;
+	height:				10px;
+}
+
+.anz_lampe_td {
+	border-collapse:	collapse;
+	text-align:			center;
+	width:				20px;
+	height:				10px;
+}
+
+.lamp_off {
+	font-size: 			6pt;
+	background:			DimGrey;
+}
+
+.lamp_on {
+	font-size: 			6pt;
+	background:			orange;
+}
+
+.teleprinter_textarea {
+	white-space: 		pre;
+ 	overflow-x: 		scroll;
+}
+
+.tapereader_textarea {
+	white-space: 		pre;
+ 	overflow-x: 		scroll;
+}
+
+.tracer_textarea {
+	white-space: 		pre;
+ 	overflow-x: 		scroll;
+}
+
+.register_display_textarea {
+	white-space: 		pre;
+ 	overflow: 			hidden;
+	resize: 			none;
+}
+
+
+/* tab strips */
+.layout {
+	margin: 				auto;
+}
+.tabStrip ul {
+	margin: 				0;
+	padding: 				0;
+	list-style-type: 		none;
+}
+.tabStrip li {
+	position: 				relative;
+	margin: 				0 2px 0 0;
+	list-style-type: 		none;
+	float: 					left;
+}
+.tabLink {
+	display:				block;
+	text-decoration:		none;
+	padding: 				2px 15px 2px 15px;
+	background: 			#373737 repeat-x;
+	background-position:	0 -50px;
+	color:					#909090;
+	white-space:			nowrap;
+	font-weight:			bold;
+}
+.tabLink:hover {
+	background-position:	0 0;
+}
+.tabLinkActive {
+	display:				block;
+	text-decoration:		none;
+	padding:				2px 15px 2px 15px;
+	background:				#474747 repeat-x;
+	background-position:	0 -50px;
+	color:					#ffffff;
+	white-space:			nowrap;
+	font-weight:			bold;
+}
+.tabLinkActive:hover {
+	background-position: 	 0;
+}
+.tabContent {
+	display: 				none;
+}
+.tabContentActive {
+	display: 				block;
+	clear: 					both;
+	background: 			#474747;
+	padding: 				2px;
+	margin: 				0 0 2px 0;
+}
+.BL {
+	bottom: 				0;
+	left: 					0;
+	background-position: 	0 -10px;
+}
+.BR {
+	bottom: 				0;
+	right: 					0;
+	background-position: 	-10px -10px;
+}
+
+
+
+
+

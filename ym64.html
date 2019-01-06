@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Norbert</title>
+    <link rel="stylesheet" href="norbert.css">
+    <script src="norbert.js"></script>
+  </head>
+  <body>
+    <div id="page_content">
+<!-- *********************************************************************************************** -->
+
+
+
+
+<h2>YM-64 --- A YM File Player for the Commodore 64</h2>
+
+
+
+YM-64 is a program to play so-called ym files on the Commodore 64.
+Ym files have the extension ".ym" and usually contain music written
+for the Atari ST, the Amstrad/Schneider CPC, or the Sinclair ZX spectrum.
+With YM-64 it is possible to play this music also on Commodore 64
+computers.
+
+	<p>
+
+The sound chip used in the Atari ST was a Yamaha YM2149. The first two
+letters of the name of this chip were used as the name of the ym files
+and also gave the name to my program YM-64. The YM2149 was a copy of
+the AY-3-8910, which was used in computers like the Amstrad/Schneider CPC,
+the Sinclair ZX Spectrum, the MSX computers, and others. Due to the
+fact that these were very popular machines a lot of music written
+for games and demos on these computers is available in ym format.
+
+	<p>
+
+The YM2149 was capable of generating square wave sound in three voices
+(channels). It had a noise generator, which could be mixed with the
+the three square wave channels, and a parameter controllable envelope
+generator.
+
+	<p>
+
+Although the chip was quite simple, the coders and musicians were able
+to produce very interesting sound effects by dynamically modifying
+the sound registers of the YM2149 and to create many great pieces of music
+with astonishingly rich and full sound.
+
+	<p>
+
+The techniques to get more out of the YM2149 and AY-3-8910 were very
+similar to the ones used in C64 music. The SID chip used in the C64 is
+also comparable to the YM2149 (although a bit more powerful in my
+opinion ;-). This brought me to the idea to emulate the YM2149 on the C64
+and to feed the emulator with some music from the Atari ST. The ym files
+are perfect for that. They consist just of the sequence of the values in
+the sound registers of the YM2149 when it plays a piece of music. This
+makes it unnecessary to emulate the whole Atari ST computer, but the
+sound register values of the ym file are just interpreted by the YM2149
+emulator.
+
+	<p>
+
+With that method I could playback pieces of music written for computers
+using the YM2149 or the AY-3-8910 on the C64 as long as they were available
+in the form of a ym file. Fortunately, a lot of such ym music can be
+found in the internet, and I converted almost 10,000 ym files into programs
+(prg files) for the C64 and into sid files (for SID players on modern PCs).
+
+	<p>
+
+	You can download (big) zip files containing all this music as prg 
+	files or as sid files with the following links and try them on an
+	emulator or on a real C64 (after clicking on the link you get several
+	available download possibilities from which you can choose):
+	<p>
+	<list>
+	<li>
+	<a href="http://sharebee.com/12a3ca02">ym-64_prg.zip</a> ... Almost 10,000 ym files
+	as C64 programs (prg files) - 36 MB.
+
+	<li>
+	<a href="http://sharebee.com/fb6f3b0e">ym-64_sid.zip</a> ... Almost 10,000 ym files
+	as C64 sid files - 39 MB.
+
+	</list>
+
+
+	<p>
+
+	<br>
+
+	If you want to try some examples before you download the big files, here
+	you find some single prg and sid files:
+	<p>
+	<list>
+	<li>
+	<a href="ym64/Nearly_Spheric.prg">Nearly_Spheric.prg</a> ... "Nearly Spherical"
+	written for the Atari ST by Jochen Hippel (prg).
+
+	<li>
+	<a href="ym64/Nearly_Spheric.sid">Nearly_Spheric.sid</a> ... "Nearly Spherical"
+	written for the Atari ST by Jochen Hippel (sid).
+
+	<li>
+	<a href="ym64/Beachtro.prg">Beachtro.prg</a> ... "Hemoroids Beachtro"
+	written for the Atari ST by AJT (prg).
+
+	<li>
+	<a href="ym64/Beachtro.sid">Beachtro.sid</a> ... "Hemoroids Beachtro"
+	written for the Atari ST by AJT (sid).
+
+	<li>
+	<a href="ym64/We_are_gonna_t.prg">We_are_gonna_t.prg</a> ... "We are gonna
+	take it" written for the Schneider CPC by Kangaroo (prg).
+
+	<li>
+	<a href="ym64/We_are_gonna_t.sid">We_are_gonna_t.sid</a> ... "We are gonna
+	take it" written for the Schneider CPC by Kangaroo (SID).
+
+	</list>
+
+	<br>
+
+	<p>
+
+	And here is a screenshot of YM-64 running on a Commodore 64:
+	<p>
+	<table><tr><td align="center">
+	<img src="ym64/ym-64.png" alt="YM-64 by Norbert Kehrer, July 2009">
+	</td></tr></table>
+
+
+
+
+
+<!-- *********************************************************************************************** -->
+    </div>
+  </body>
+</html>

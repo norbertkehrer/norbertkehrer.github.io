@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+
+
+
+
+<html>
+
+
+	<head>
+
+
+		<title>HP-45 Program ROM Translation to JavaScript by Norbert Kehrer</title>
+
+		<script type="text/javascript" src="hp45.js"></script>
+
+		<style type="text/css">
+			body { 
+			   background-color:	#e0e9fa;
+			   font-family: 		Arial;
+			   color:				Black;
+			}
+			a:link {
+    			color: 				Blue;
+			}
+			a:visited {
+    			color: 				Blue;
+			}
+			.image { 
+			   position: relative; 
+			   width:	100%; /* for IE 6 */
+			}
+			.led { 
+			   position: absolute; 
+			   top:		24px; 
+			   left:	32px; 
+			   width:	210px;
+			   height:	40px;
+			   line-height:	40px;
+			   vertical-align:	middle;
+			   background-color:	#020000;
+			   color:				red;
+			   font-size:			18px;
+			   font-weight:			bold;
+			   font-family: 		monospace;
+			   letter-spacing: 		2px;
+			}
+		</style>
+
+	</head>
+
+
+	<body onload="run()">
+
+		<table>
+			<tr>
+				<td>
+					<div class="image">
+
+						<img src="hp45_pic.jpg" width=276 height=512 border=0 usemap="#keymap">
+				
+						<div id="led_display" class="led">
+						Norbert Kehrer
+						</div>
+
+					</div>
+
+<map name="keymap">
+<area shape=rect coords="30,110,72,155"   href="javascript:key_pressed(6)" title="1/x"></area>
+<area shape=rect coords="73,110,115,153"  href="javascript:key_pressed(4)" title="ln"></area>
+<area shape=rect coords="116,110,158,153" href="javascript:key_pressed(3)" title="e^x"></area>
+<area shape=rect coords="159,110,201,153" href="javascript:key_pressed(2)" title="FIX"></area>
+<area shape=rect coords="202,110,244,153" href="javascript:key_pressed(0)" title="Gold"></area>
+
+<area shape=rect coords="30,155,72,198"   href="javascript:key_pressed(46)" title="x^2"></area>
+<area shape=rect coords="73,155,115,198"  href="javascript:key_pressed(44)" title="&rarr;P"></area>
+<area shape=rect coords="116,155,158,198" href="javascript:key_pressed(43)" title="SIN"></area>
+<area shape=rect coords="159,155,201,198" href="javascript:key_pressed(42)" title="COS"></area>
+<area shape=rect coords="202,155,244,198" href="javascript:key_pressed(40)" title="TAN"></area>
+
+<area shape=rect coords="30,198,72,241"   href="javascript:key_pressed(14)" title="x&lt;&gt;y"></area>
+<area shape=rect coords="73,198,115,241"  href="javascript:key_pressed(12)" title="R&darr;"></area>
+<area shape=rect coords="116,198,158,241" href="javascript:key_pressed(11)" title="STO"></area>
+<area shape=rect coords="159,198,201,241" href="javascript:key_pressed(10)" title="RCL"></area>
+<area shape=rect coords="202,198,244,241" href="javascript:key_pressed(8)"  title="%"></area>
+
+<area shape=rect coords="30,241,115,284"  href="javascript:key_pressed(61)" title="ENTER &uarr;"></area>
+<area shape=rect coords="116,241,158,284" href="javascript:key_pressed(59)" title="CHS"></area>
+<area shape=rect coords="159,241,201,284" href="javascript:key_pressed(58)" title="EEX"></area>
+<area shape=rect coords="202,241,244,284" href="javascript:key_pressed(56)" title="CLx"></area>
+
+<area shape=rect coords="30,288,69,332"   href="javascript:key_pressed(54)" title="-"></area>
+<area shape=rect coords="70,288,130,332"  href="javascript:key_pressed(52)" title="7"></area>
+<area shape=rect coords="131,288,191,332" href="javascript:key_pressed(51)" title="8"></area>
+<area shape=rect coords="192,288,252,332" href="javascript:key_pressed(50)" title="9"></area>
+
+<area shape=rect coords="30,333,69,377"   href="javascript:key_pressed(22)" title="+"></area>
+<area shape=rect coords="70,333,130,377"  href="javascript:key_pressed(20)" title="4"></area>
+<area shape=rect coords="131,333,191,377" href="javascript:key_pressed(19)" title="5"></area>
+<area shape=rect coords="192,333,252,377" href="javascript:key_pressed(18)" title="6"></area>
+
+<area shape=rect coords="30,378,69,422"   href="javascript:key_pressed(30)" title="x"></area>
+<area shape=rect coords="70,378,130,422"  href="javascript:key_pressed(28)" title="1"></area>
+<area shape=rect coords="131,378,191,422" href="javascript:key_pressed(27)" title="2"></area>
+<area shape=rect coords="192,378,252,422" href="javascript:key_pressed(26)" title="3"></area>
+
+<area shape=rect coords="30,421,69,464"   href="javascript:key_pressed(38)" title="&divide;"></area>
+<area shape=rect coords="70,421,130,464"  href="javascript:key_pressed(36)" title="0"></area>
+<area shape=rect coords="131,421,191,464" href="javascript:key_pressed(35)" title="."></area>
+<area shape=rect coords="192,421,252,464" href="javascript:key_pressed(34)" title="&sum;+"></area>
+
+<area shape=rect coords="30,480,252,500"  href="javascript:alert('Static Binary Translation of the HP-45 Calculator Program ROM to JavaScript by Norbert Kehrer in October 2014, http://members.aon.at/~nkehrer/')"
+                                           title="About ..."></area>
+</map>
+
+
+				<td>
+					&nbsp; &nbsp;
+					&nbsp; &nbsp;
+					&nbsp; &nbsp;
+
+				<td>
+
+					<h1>HP-45 Emulator</h2>
+
+					<p>
+					&nbsp;
+
+					<h2>Translation of the HP-45</h2>
+					<h2>Program ROM to JavaScript</h2>
+					<h2>by Norbert Kehrer in October 2014</h2>
+
+					<p>
+					&nbsp;
+
+					<h2><a href="http://members.aon.at/~nkehrer/">http://members.aon.at/~nkehrer/</a></h2>
+
+		</table>
+
+
+	</body>
+
+
+
+</html>

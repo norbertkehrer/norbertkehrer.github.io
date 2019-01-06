@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+
+
+
+
+<html>
+
+
+	<head>
+
+
+		<title>IBM 5110 Emulator in JavaScript by Norbert Kehrer</title>
+
+		<style type="text/css">
+			body { 
+				background-color:	Black;
+				font-family: 		Arial;
+				color:				White;
+			}
+			a:link {
+				color: 				Yellow;
+			}
+			a:visited {
+				color: 				Yellow;
+			}
+			.image { 
+				position:			relative; 
+				width:				100%; /* for IE 6 */
+			}
+			.led_off { 
+				color:				DarkGrey;
+			}
+			.led_on { 
+				color:				Red;
+			}
+			.switch_text { 
+				font-family: 		Arial;
+				color:				White;
+				font-size:			10px;
+			}
+			.switch_on { 
+				background-color:	White;
+				width:				20px;
+			}
+			.switch_off { 
+				background-color:	LightGrey;
+				width:				20px;
+		}
+		</style>
+
+	</head>
+
+
+	<body onkeydown="keyPressed(event)">
+
+		<table border="0">
+			<tr valign="top">
+
+				<td>
+					<table border="1">
+						<tr valign="top">
+							<td>
+								<canvas id="myCanvas" width="680" height="480" style="border:1px solid #000000;">
+								</canvas>
+					</table>
+				<td>
+
+					<table border="1">
+						<tr class="switch_text" align="center">
+							<td>BRIGHTNESS
+							<td>L32&nbsp;64&nbsp;R32
+							<td>IN PROCESS
+							<td>REVERSE DISPLAY
+							<td>BASIC
+							<td>RESTART
+							<td>DISPLAY REGISTERS
+						<tr align="center">
+							<td>
+								<select onchange="set_brightness(this.value)">
+									<option value="0">0</option>
+									<option value="1">1</option>
+									<option value="2">2</option>
+									<option value="3">3</option>
+									<option value="4">4</option>
+									<option value="5">5</option>
+									<option value="6" selected="selected">6</option>
+									<option value="7">7</option>
+								</select>
+							<td>
+								<table>
+									<tr>
+										<td id="l32_64_r32_1" class="switch_off" onclick="set_screen_mode(1)">&nbsp;
+										<td id="l32_64_r32_0" class="switch_on"  onclick="set_screen_mode(0)">&nbsp;
+										<td id="l32_64_r32_2" class="switch_off" onclick="set_screen_mode(2)">&nbsp;
+								</table>
+							<td>
+								<table>
+									<tr>
+										<td id="led_in_process" class="led_off">&#x25cf;
+									<tr>
+										<td class="led_off">&#x25cf;
+								</table>							
+							<td>
+								<table>
+									<tr>
+										<td id="reverse_on" class="switch_off" onclick="set_reverse(1)">&nbsp;
+									<tr>
+										<td id="reverse_off" class="switch_on" onclick="set_reverse(0)">&nbsp;
+								</table>
+							<td>
+								<table>
+									<tr>
+										<td id="language_basic" class="switch_on"  onclick="set_language(0)">&nbsp;
+									<tr>
+										<td id="language_apl"   class="switch_off" onclick="set_language(1)">&nbsp;
+								</table>
+							<td>
+								<table>
+									<tr>
+										<td class="switch_off" onclick="run()">&nbsp;
+									<tr>
+										<td class="switch_on"  onclick="run()">&nbsp;
+								</table>
+							<td>
+								<table>
+									<tr>
+										<td class="switch_off">&nbsp;
+									<tr>
+										<td class="switch_on">&nbsp;
+								</table>
+						<tr class="switch_text" align="center">
+							<td>
+							<td>
+							<td>PROCESS CHECK
+							<td>
+							<td>APL
+							<td>
+							<td>NORMAL
+					</table>
+
+					<p>
+
+					<table border="0">
+						<tr align="center">
+							<td>
+								Pixel size:
+							<td>
+								<select onchange="set_pixelmode(this.value)">
+									<option value="0">Normal</option>
+									<option value="1">Double</option>
+									<option value="2" selected="selected">Quad</option>
+								</select>
+					</table>
+
+					<p>
+
+					&nbsp;
+
+					<p>
+
+					<h1>IBM 5110 Emulator</h2>
+
+					<h2>by Norbert Kehrer in May 2015</h2>
+
+					The IBM 5100 and 5110 were IBM's first "portable" computers. They had interpreters 
+					of the machine languages of IBM's much bigger machines System/3 and System/360 in their ROM,
+					and with these they could execute the (slightly adapted) powerful BASIC and APL language
+					implementations of the large machines. This program is my JavaScript emulator of the IBM 5110.
+					It is a port of
+					<a href="http://computermuseum.informatik.uni-stuttgart.de/dev_en/ibm_5110/ibm_5110.html" target="_blank">Christian Corti</a>'s
+					great emulator on Unix systems.
+
+					<p>
+					Read more about it on my homepage at
+					<a href="http://members.aon.at/~nkehrer/">http://members.aon.at/~nkehrer/</a>  
+
+					<p>
+
+					Use your keyboard or click on the keyboard image below to enter data.
+
+					</div>
+
+
+
+
+		</table>
+
+		<script type="text/javascript" src="emu5110.js"></script>
+
+
+					<div class="image">
+
+						<img src="keyboard.png" border=0 usemap="#keymap">
+				
+						<map name="keymap">
+							<area shape=rect coords="35,52,62,87"        href="javascript:key_pressed(49)"  title="1"></area>
+							<area shape=rect coords="71,52,98,87"        href="javascript:key_pressed(50)"  title="2"></area>
+							<area shape=rect coords="107,52,134,87"      href="javascript:key_pressed(51)"  title="3"></area>
+							<area shape=rect coords="143,52,170,87"      href="javascript:key_pressed(52)"  title="4"></area>
+							<area shape=rect coords="179,52,206,87"      href="javascript:key_pressed(53)"  title="5"></area>
+							<area shape=rect coords="215,52,242,87"      href="javascript:key_pressed(54)"  title="6"></area>
+							<area shape=rect coords="251,52,278,87"      href="javascript:key_pressed(55)"  title="7"></area>
+							<area shape=rect coords="287,52,314,87"      href="javascript:key_pressed(56)"  title="8"></area>
+							<area shape=rect coords="323,52,350,87"      href="javascript:key_pressed(57)"  title="9"></area>
+							<area shape=rect coords="359,52,386,87"      href="javascript:key_pressed(48)"  title="0"></area>
+							<area shape=rect coords="395,52,422,87"      href="javascript:key_pressed(219)" title="+"></area>
+							<area shape=rect coords="431,52,458,87"      href="javascript:key_pressed(221)" title="x"></area>
+							<area shape=rect coords="467,52,494,87"      href="javascript:key_pressed(37)"  title="Left"></area>
+							<area shape=rect coords="503,52,530,87"      href="javascript:key_pressed(39)"  title="Right"></area>
+
+							<area shape=rect coords="556,52,582,87"      href="javascript:key_pressed(27)"  title="ATTN"></area>
+							<area shape=rect coords="592,52,618,87"      href="javascript:key_pressed(38)"  title="Up"></area>
+							<area shape=rect coords="628,52,654,87"      href="javascript:key_pressed(40)"  title="Down"></area>
+
+							<area shape=rect coords="682,52,708,87"      href="javascript:key_pressed(19)"  title="HOLD"></area>
+
+
+							<area shape=rect coords="18,88,45,159"     href="javascript:key_pressed(901)"  title="CMD"></area>
+
+							<area shape=rect coords="53,88,80,124"       href="javascript:key_pressed(81)"  title="Q"></area>
+							<area shape=rect coords="89,88,116,124"      href="javascript:key_pressed(87)"  title="W"></area>
+							<area shape=rect coords="125,88,152,124"     href="javascript:key_pressed(69)"  title="E"></area>
+							<area shape=rect coords="161,88,188,124"     href="javascript:key_pressed(82)"  title="R"></area>
+							<area shape=rect coords="197,88,224,124"     href="javascript:key_pressed(84)"  title="T"></area>
+							<area shape=rect coords="233,88,260,124"     href="javascript:key_pressed(89)"  title="Y"></area>
+							<area shape=rect coords="269,88,296,124"     href="javascript:key_pressed(85)"  title="U"></area>
+							<area shape=rect coords="305,88,332,124"     href="javascript:key_pressed(73)"  title="I"></area>
+							<area shape=rect coords="341,88,368,124"     href="javascript:key_pressed(79)"  title="O"></area>
+							<area shape=rect coords="377,88,404,124"     href="javascript:key_pressed(80)"  title="P"></area>
+							<area shape=rect coords="413,88,440,124"     href="javascript:key_pressed(8)"   title="<-"></area>
+							<area shape=rect coords="449,88,476,124"     href="javascript:key_pressed(187)" title="="></area>
+
+							<area shape=rect coords="494,88,530,159"     href="javascript:key_pressed(13)"  title="EXECUTE"></area>
+
+							<area shape=rect coords="556,88,582,124"     href="javascript:key_pressed(103)" title="7"></area>
+							<area shape=rect coords="592,88,618,124"     href="javascript:key_pressed(104)" title="8"></area>
+							<area shape=rect coords="628,88,654,124"     href="javascript:key_pressed(105)" title="9"></area>
+
+							<area shape=rect coords="682,88,708,124"     href="javascript:key_pressed(111)" title="/"></area>
+
+
+							<area shape=rect coords="62,125,88,159"      href="javascript:key_pressed(65)"  title="A"></area>
+							<area shape=rect coords="98,125,124,159"     href="javascript:key_pressed(83)"  title="S"></area>
+							<area shape=rect coords="134,125,160,159"    href="javascript:key_pressed(68)"  title="D"></area>
+							<area shape=rect coords="170,125,196,159"    href="javascript:key_pressed(70)"  title="F"></area>
+							<area shape=rect coords="206,125,232,159"    href="javascript:key_pressed(71)"  title="G"></area>
+							<area shape=rect coords="242,125,268,159"    href="javascript:key_pressed(72)"  title="H"></area>
+							<area shape=rect coords="278,125,304,159"    href="javascript:key_pressed(74)"  title="J"></area>
+							<area shape=rect coords="314,125,340,159"    href="javascript:key_pressed(75)"  title="K"></area>
+							<area shape=rect coords="350,125,376,159"    href="javascript:key_pressed(76)"  title="L"></area>
+							<area shape=rect coords="386,125,412,159"    href="javascript:key_pressed(192)" title="["></area>
+							<area shape=rect coords="422,125,448,159"    href="javascript:key_pressed(222)" title="]"></area>
+							<area shape=rect coords="458,125,484,159"    href="javascript:key_pressed(191)" title="#"></area>
+
+
+							<area shape=rect coords="556,125,582,159"    href="javascript:key_pressed(100)" title="4"></area>
+							<area shape=rect coords="592,125,618,159"    href="javascript:key_pressed(101)" title="5"></area>
+							<area shape=rect coords="628,125,654,159"    href="javascript:key_pressed(102)" title="6"></area>
+
+							<area shape=rect coords="682,125,708,159"    href="javascript:key_pressed(106)" title="*"></area>
+
+							<area shape=rect coords="18,161,70,196"      href="javascript:key_pressed(900)" title="SHIFT"></area>
+							<area shape=rect coords="81,161,107,196"     href="javascript:key_pressed(90)"  title="Z"></area>
+							<area shape=rect coords="117,161,143,196"    href="javascript:key_pressed(88)"  title="X"></area>
+							<area shape=rect coords="153,161,179,196"    href="javascript:key_pressed(67)"  title="C"></area>
+							<area shape=rect coords="189,161,215,196"    href="javascript:key_pressed(86)"  title="V"></area>
+							<area shape=rect coords="225,161,251,196"    href="javascript:key_pressed(66)"  title="B"></area>
+							<area shape=rect coords="261,161,287,196"    href="javascript:key_pressed(78)"  title="N"></area>
+							<area shape=rect coords="297,161,323,196"    href="javascript:key_pressed(77)"  title="M"></area>
+							<area shape=rect coords="333,161,359,196"    href="javascript:key_pressed(188)" title=","></area>
+							<area shape=rect coords="369,161,395,196"    href="javascript:key_pressed(190)" title="."></area>
+							<area shape=rect coords="405,161,431,196"    href="javascript:key_pressed(189)" title="/"></area>
+							<area shape=rect coords="441,161,467,196"    href="javascript:key_pressed(226)" title="&"></area>
+							<area shape=rect coords="477,161,530,196"    href="javascript:key_pressed(900)" title="SHIFT"></area>
+
+							<area shape=rect coords="556,161,582,196"    href="javascript:key_pressed(97)"  title="1"></area>
+							<area shape=rect coords="592,161,618,196"    href="javascript:key_pressed(98)"  title="2"></area>
+							<area shape=rect coords="628,161,654,196"    href="javascript:key_pressed(99)"  title="3"></area>
+
+							<area shape=rect coords="682,161,708,196"    href="javascript:key_pressed(109)" title="-"></area>
+
+							<area shape=rect coords="100,197,415,233"    href="javascript:key_pressed(32)"  title="SPACE"></area>
+
+							<area shape=rect coords="556,197,618,233"    href="javascript:key_pressed(96)"  title="0"></area>
+							<area shape=rect coords="628,197,654,233"    href="javascript:key_pressed(110)" title="."></area>
+
+							<area shape=rect coords="682,197,708,233"    href="javascript:key_pressed(107)" title="+"></area>
+
+
+						</map>
+
+
+
+		<h2>Quick Start</h2>
+
+		Use the keyboard to enter data. The special keys of the IBM 5110 are mapped in the following way to keys on the PC keyboard (see also layout above):
+		
+		<p>
+
+		<table>
+			<tr align="left"><th>IBM 5110	<th>-->	<th>PC
+			<tr align="left"><td>ATTN		<td>	<td>Esc
+			<tr align="left"><td>HOLD		<td>	<td>Pause/Break
+			<tr align="left"><td>CMD		<td>	<td>Ctrl
+			<tr align="left"><td>EXECUTE	<td>	<td>Enter
+		</table>
+
+		<p>
+
+		In case of error messages in BASIC, you will not be able to enter anything. You have to press the "ATTN" key
+		("Escape" on the PC keyboard), first. Then you can correct the entered line or press "ATTN" again to clear your
+		previous input. A backspace key is not there on the 5110 keyboard. Use the "left" key (cursor left on the PC) instead.
+
+		<p>
+
+		Try some BASIC commands like "PRINT 19 + 7", etc.
+
+		<p>
+
+		Get the directory listing of floppy disk 1 by entering "UTIL DIR,D80".
+
+		<p>
+
+		Load the operator training program from disk by entering "LOAD 'INTRO',D80" and run it by entering "RUN".
+
+		<p>
+
+		There are currently the following four floppy disks:
+
+		<table>
+			<tr align="left"><th>Drive		<th>&nbsp;	<th>Disk
+			<tr align="left"><td>1 (D80)	<td>		<td>Customer Support Functions
+			<tr align="left"><td>2 (D40)	<td>		<td>Diagnostic Diskette
+			<tr align="left"><td>3 (D20)	<td>		<td>Serial I/O Diskette
+			<tr align="left"><td>4 (D10)	<td>		<td>Empty disk
+		</table>
+
+		<p>
+
+		To switch from BASIC to APL, press the "APL" switch, and then press the "RESTART" switch. Going back to Basic is the same with the "BASIC" switch first.
+
+		<p>
+
+		For much more read IBM's great manuals at <a href="http://www.mirrorservice.org/sites/www.bitsavers.org/pdf/ibm/5110/">bitsavers.org</a>. 
+
+		<p>
+
+		There are also some bugs and still many missing features: The "HOLD" key does not work properly in BASIC mode. The tape and disk drives of the
+		IBM 5110 are not yet emulated. The switch to display the registered is not yet implemented. Some keys might not be mapped corectly (I have only a
+		German keyboard to test it). Etc.
+
+		<p>
+		Have fun.
+
+		<p>
+		Norbert
+
+
+	</body>
+
+
+
+</html>

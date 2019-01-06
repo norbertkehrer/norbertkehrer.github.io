@@ -1,0 +1,332 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Norbert</title>
+    <link rel="stylesheet" href="norbert.css">
+    <script src="norbert.js"></script>
+  </head>
+  <body>
+    <div id="page_content">
+<!-- *********************************************************************************************** -->
+
+
+
+
+
+
+
+<h2>Mail&uuml;fterl Emulator</h2>
+
+	The Mail&uuml;fterl was the first fully transistorized computer on continental Europe. It was built at the 
+	Technical University of Vienna (Austria) from 1956 to 1958 by Dr. Heinz Zemanek and his team.
+	The machine was very reliable and was in operation until about 1966 :-).
+	<p>
+	This is my JavaScript emulator of the machine written in 2017. It is based on my Java version from 2007. Start it here: 
+	<p>
+	<ul>
+		<li>
+			<a href="mailuefterl/mailuefterl.html" target="_blank">Start the Mail&uuml;fterl Emulator</a>
+	</ul>
+	<p>
+	Find out more about the machine and the emulator usage in the following English/German text.
+	<p>
+
+<h2>
+				Mail&uuml;fterl machine
+</h2>
+
+
+The Mail&uuml;fterl was a fully transistorized, serial, decimal-and-binary drum computer with 50 words
+of immediate-access core storage. The 3,000-rpm drum stored 10,000 48-bit words. Instructions were of
+the one-address type, fully utilizing a whole word, as they included references to the core store, condition on execution,
+and indication of how the address is to be modified or interpreted, etc. Addition took 0.8 ms.
+Multiplication and division were effected by subroutines, multiplication taking 26 ms. 
+
+<p>
+
+The machine was built by Dr. Heinz Zemanek and his team in Vienna/Austria from 1956 to 1958.
+The Team members were Heinz Zemanek, Kurt Bandat, Rudolf Bodo, Viktor Kudielka, Kurt Walk, Peter Lucas, and Eugen M&uuml;hldorf.
+
+<p>
+Das Mail&uuml;fterl war ein volltransistorisierter, serieller, dezimal-bin&auml;rer Trommelspeicherrechner mit 50 Worten
+Kernspeicher f&uuml;r den Schnellzugriff. Die mit 3.000 Umdrehungen pro Minute rotierende Trommel konnte 10.000 48-Bit-Worte
+speichern. Die Befehle waren vom 1-Adress-Typ und nutzten das gesamte Maschinenwort aus, weil sie Referenzen auf den
+Kernspeicher, eine Bedingung f&uuml;r die Ausf&uuml;hrung und Angaben zur Adressmodifikation und -interpretation usw. beinhalteten.
+Die Addition dauerte 0,8 Millisekunden. Multiplikation und Division waren als Unterprgramme realisiert. Eine Multiplikation
+dauerte dadurch 26 Millisekunden.
+
+<p>
+
+Der Rechner wurde von Dr. Heinz Zemanek und seinem Team in Wien/&Ouml;sterreich zwischen 1956 und 1958 gebaut.
+Die Teammitglieder waren Heinz Zemanek, Kurt Bandat, Rudolf Bodo, Viktor Kudielka, Kurt Walk, Peter Lucas und Eugen M&uuml;hldorf.
+		
+
+
+			<h2>
+				Registers / Register
+			</h2>
+
+			Registers are 48 bits wide. / Register sind 48 Bit breit.
+			<p>
+
+			<table>
+				<tr><td>AK</td><td>...</td><td>Accumulator / Akkumulator</td></tr>
+				<tr><td>MR</td><td>...</td><td>Multiplicator / Multiplikator</td></tr>
+				<tr><td>MD</td><td>...</td><td>Multiplicand / Multiplikand</td></tr>
+				<tr><td>BR</td><td>...</td><td>Instruction register / Befehlsregister</td></tr>
+				<tr><td>BZ</td><td>...</td><td>Program counter / Befehlsz&auml;hler</td></tr>
+				<tr><td>RS</td><td>...</td><td>Return address / R&uuml;ckkehradresse</td></tr>
+			</table>
+
+			<h2>
+				Instruction format / Befehlsformat
+			</h2>
+
+			<table border="1">
+				<tr>
+					<td>47</td>
+					<td>46</td>
+					<td>45</td>
+					<td>44</td>
+					<td>43</td>
+					<td>42</td>
+					<td>41</td>
+					<td>40</td>
+					<td>39</td>
+					<td>38</td>
+					<td>37</td>
+					<td>36</td>
+					<td>35</td>
+					<td>34</td>
+					<td>33</td>
+					<td>32</td>
+					<td>31</td>
+					<td>30</td>
+					<td>29</td>
+					<td>28</td>
+					<td>27</td>
+					<td>26</td>
+					<td>25</td>
+					<td>24</td>
+					<td>23</td>
+					<td>22</td>
+					<td>21</td>
+					<td>20</td>
+					<td>19</td>
+					<td>18</td>
+					<td>17</td>
+					<td>16</td>
+					<td>15</td>
+					<td>14</td>
+					<td>13</td>
+					<td>12</td>
+					<td>11</td>
+					<td>10</td>
+					<td>9</td>
+					<td>8</td>
+					<td>7</td>
+					<td>6</td>
+					<td>5</td>
+					<td>4</td>
+					<td>3</td>
+					<td>2</td>
+					<td>1</td>
+					<td>0</td>
+				</tr>
+				<tr>
+					<td></td>
+					<td colspan="2">Tab</td>
+					<td>Q</td>
+					<td colspan="4">Condition<br>Bedingung</td>
+					<td colspan="4">Main instr.<br>Hauptbefehl</td>
+					<td colspan="3">Additional instr.<br>Zusatz</td>
+					<td>X</td>
+					<td>K</td>
+					<td>B</td>
+					<td>H</td>
+					<td>G</td>
+					<td>S</td>
+					<td>V</td>
+					<td>W</td>
+					<td>M</td>
+					<td colspan="8">Index</td>
+					<td colspan="16">Address<br>Adresse</td>
+				</tr>
+			</table>
+
+			<h2>
+				Conditions / Bedingungen
+			</h2>
+
+			<table>
+				<tr><td>0</td><td>...</td><td>Z0</td><td>...</td><td>Unconditional / ohne Bedingung</td></tr>
+				<tr><td>1</td><td>...</td><td>Z1</td><td>...</td><td>LSD(MR) &ne; 0</td></tr>
+				<tr><td>2</td><td>...</td><td>Z2</td><td>...</td><td>(AK) &ge; (MD)</td></tr>
+				<tr><td>3</td><td>...</td><td>Z3</td><td>...</td><td>(AK) &ge; 0</td></tr>
+				<tr><td>4</td><td>...</td><td>Z4</td><td>...</td><td>(AK) &lt; 0</td></tr>
+				<tr><td>5</td><td>...</td><td>Z5</td><td>...</td><td>unused / unbenutzt</td></tr>
+				<tr><td>6</td><td>...</td><td>Z6</td><td>...</td><td>unused / unbenutzt</td></tr>
+				<tr><td>7</td><td>...</td><td>Z7</td><td>...</td><td>Tetrade 11 of MR &ge; 5</td></tr>
+				<tr><td>8</td><td>...</td><td>Z8</td><td>...</td><td>(MD) &lt; 0</td></tr>
+				<tr><td>9</td><td>...</td><td>Z9</td><td>...</td><td>(AK) contains Q mark / (AK) enth&auml;lt Q-Zeichen</td></tr>
+				<tr><td>10</td><td>...</td><td>Z10</td><td>...</td><td>unused / unbenutzt</td></tr>
+				<tr><td>11</td><td>...</td><td>Z11</td><td>...</td><td>(AK) &ne; (MD)</td></tr>
+				<tr><td>12</td><td>...</td><td>Z12</td><td>...</td><td>(AK) = 0</td></tr>
+				<tr><td>13</td><td>...</td><td>Z13</td><td>...</td><td>Switch Z13 is on / Schalter Z13 eingeschaltet</td></tr>
+				<tr><td>14</td><td>...</td><td>Z14</td><td>...</td><td>Switch Z14 is on / Schalter Z14 eingeschaltet</td></tr>
+				<tr><td>15</td><td>...</td><td>Z15</td><td>...</td><td>Switch Z15 is on / Schalter Z15 eingeschaltet</td></tr>
+			</table>
+
+			<h2>
+				Main instructions / Hauptbefehle
+			</h2>
+
+			<table>
+				<tr><td>0</td><td>...</td><td>N</td><td>...</td><td>Zero operation / keine Operation</td></tr>
+				<tr><td>1</td><td>...</td><td>A</td><td>...</td><td>Decimal Addition / Dezimale Addition</td></tr>
+				<tr><td>2</td><td>...</td><td>E</td><td>...</td><td>Extraction / Extraktion</td></tr>
+				<tr><td>3</td><td>...</td><td>I</td><td>...</td><td>Conjunction / Konjunktion</td></tr>
+				<tr><td>4</td><td>...</td><td>D</td><td>...</td><td>Disjunction / Disjunktion</td></tr>
+				<tr><td>5</td><td>...</td><td>OA</td><td>...</td><td>Binary Addition / Bin&auml;re Addition</td></tr>
+				<tr><td>6</td><td>...</td><td>F</td><td>...</td><td>Not equivalence / Antivalenz</td></tr>
+				<tr><td>7</td><td>...</td><td>TI</td><td>...</td><td>Transfer to core / Kernspeichertransport</td></tr>
+				<tr><td>8</td><td>...</td><td>TN</td><td>...</td><td>Transfer to drum / Trommelspeichertransport</td></tr>
+				<tr><td>9</td><td>...</td><td>YA</td><td>...</td><td>Recurrent addition / Wiederholte Addition</td></tr>
+				<tr><td>10</td><td>...</td><td>U</td><td>...</td><td>Write to memory / In den Speicher schreiben</td></tr>
+				<tr><td>11</td><td>...</td><td>YN</td><td>...</td><td>Recurrent zero operation / Wiederholtes Nichtstun</td></tr>
+				<tr><td>12</td><td>...</td><td>J</td><td>...</td><td>Read from memory / Aus dem Speicher lesen</td></tr>
+				<tr><td>13</td><td>...</td><td></td><td>...</td><td>unused / unbenutzt</td></tr>
+				<tr><td>14</td><td>...</td><td></td><td>...</td><td>unused / unbenutzt</td></tr>
+				<tr><td>15</td><td>...</td><td></td><td>...</td><td>unused / unbenutzt</td></tr>
+			</table>
+
+			<h2>
+				Additional instructions / Zus&auml;tze
+			</h2>
+
+			<table>
+				<tr><td>0</td><td>...</td><td></td><td>...</td><td>No additional operation / keine zus&auml;tzliche Operation</td></tr>
+				<tr><td>1</td><td>...</td><td>C</td><td>...</td><td>Clear accumulator / Akkumulator l&ouml;schen</td></tr>
+				<tr><td>2</td><td>...</td><td>L</td><td>...</td><td>Shift accumulator left / Akkumulator nach links verschieben</td></tr>
+				<tr><td>3</td><td>...</td><td>R</td><td>...</td><td>Shift accumulator right / Akkumulator nach rechts verschieben</td></tr>
+				<tr><td>4</td><td>...</td><td>OL</td><td>...</td><td>Shift accumulator left binary / Akkumulator bin&auml;r nach links verschieben</td></tr>
+				<tr><td>5</td><td>...</td><td>OR</td><td>...</td><td>Shift accumulator right binary / Akkumulator bin&auml;r nach rechts verschieben</td></tr>
+				<tr><td>6</td><td>...</td><td>PQ</td><td>...</td><td>Set Q mark / Q-Zeichen setzen</td></tr>
+				<tr><td>7</td><td>...</td><td>PP</td><td>...</td><td>Clear Q mark / Q-Zeichen l&ouml;schen</td></tr>
+			</table>
+
+
+			<h2>
+				Functional bits / Funktionale Bits
+			</h2>
+
+			<table>
+				<tr><td>X</td><td>...</td><td>Jump / Sprung</td></tr>
+				<tr><td>K</td><td>...</td><td>Address is core store address / Adresse ist Kernspeicheradresse</td></tr>
+				<tr><td>B</td><td>...</td><td>Address is pseudo address / Adresse ist Pseudoadresse</td></tr>
+				<tr><td>H</td><td>...</td><td>Address addition (Effective address = index + address) / Adressaddition (Effektive Adresse = Index + Adresse)</td></tr>
+				<tr><td>G</td><td>...</td><td>Address substitution (Effective address = contents of address) / Adresssubstitution (Effektive Adresse = Inhalt der Adresse)</td></tr>
+				<tr><td>S</td><td>...</td><td>Subtraction / Subtraktion</td></tr>
+				<tr><td>V</td><td>...</td><td>Clear MR / MR l&ouml;schen</td></tr>
+				<tr><td>W</td><td>...</td><td>Add 1 to (MR) / 1 zu (MR) addieren</td></tr>
+				<tr><td>M</td><td>...</td><td>Add -1 to (MR) / -1 zu (MR) addieren</td></tr>
+			</table>
+
+
+			<h2>
+				Special combinations / Spezielle Kombinationen
+			</h2>
+
+			<table>
+				<tr><td>XA</td><td>...</td><td>Jump with addition in the MR / Sprung mit Addition</td></tr>
+				<tr><td>XB</td><td>...</td><td>Recurrent jump / Wiederholungssprung</td></tr>
+				<tr><td>XAB</td><td>...</td><td>Block transfer / Blocktransport</td></tr>
+				<tr><td>Z<sub>k</sub>XB</td><td>...</td><td>Recurrent jump with condition / Bedingter Wiederholungssprung</td></tr>
+				<tr><td>XU</td><td>...</td><td>Jump with storing return instruction / Sprung mit automatischer Notierung des R&uuml;ckkehrbefehls</td></tr>
+				<tr><td>XUB</td><td>...</td><td>Recurrent jump with storing return instruction / Wiederholungssprung mit automatischer Notierung des R&uuml;ckkehrbefehls</td></tr>
+				<tr><td>Z<sub>k</sub>XUB</td><td>...</td><td>Conditional recurrent jump with storing return instruction / Bedingter Wiederholungssprung mit automatischer Notierung des R&uuml;ckkehrbefehls</td></tr>
+			</table>
+
+			<h2>
+				Using the Emulator / Bedienung des Emulators
+			</h2>
+
+			Do this:
+
+			<ul>
+				<li>
+					Select and load a pre-stored paper tape in the punched tape reader window (button "Load"), or type in your own program there.
+				<li>
+					Assemble the program with the button "Assemble".
+				<li>
+					Then, go to the control desk window and enter the command "Jump to start address of the program" like so:
+				<li>
+					Select in the address area the four digits of the start address of the program (e.g. 1000).
+				<li>
+					Set the condition, the main and additional instructions, and all functional bits to "empty".
+				<li>
+					Mark the functional bit "X", i.e. Jump.
+				<li>
+					Press the button "B&Uuml;", i.e. take over the instruction from the control desk into the instruction register.
+				<li>
+					Press the button "ST", i.e. start the machine.
+				<li>
+					Watch the output of the program in the teleprinter, control desk, or relay window.
+				<li>
+					To stop the machine press the button "MS".
+			</ul>
+
+			And now, try out software which was written in the fifties and early sixties of the last century and probably has not been run for 60 years now!
+
+			<p>
+
+			Mache das:
+
+			<ul>
+				<li>
+					W&auml;hle ein Programm eines vorgespeicherten Lochstreifens und lade es in das Lochstreifenabtasterfenster (Schalter "Load"), oder tippe ein Programm dort ein.
+				<li>
+					&Uuml;bersetze das Programm mit dem Schalter "Assemble".
+				<li>
+					Dann gehe zur Schalttafel und gib den Befehl "Springe zur Startadresse des Programms" so ein:
+				<li>
+					W&auml;hle im Adressfeld die vier Ziffern der Startadresse des Programms aus (z.B. 1000).
+				<li>
+					Setze Bedingung, Hauptbefehl, Zus&auml;tze und alle funktionalen Bits auf "leer".
+				<li>
+					Setze das funktionale Bit "X", d.h. Sprung.
+				<li>
+					Dr&uuml;cke den Schalter "B&Uuml;", d.h. &uuml;bernimm den Befehl von der Schalttafel ins Befehlsregister.
+				<li>
+					Dr&uuml;cke den Schalter "ST", d.h. starte den Rechner.
+				<li>
+					Sieh dir die Ausgabe des Programms im Fernschreiber-, Schalttafel- oder Relais-Fenster an.
+				<li>
+					Dr&uuml;cke den Schalter "MS" zum Anhalten des Rechners.
+			</ul>
+
+			Und jetzt probiere Software aus, die in den F&uuml;nfziger- und Sechziger-Jahren des vorigen Jahrhunderts geschrieben wurde und wahrscheinlich 60 Jahre lang nicht mehr gelaufen ist!
+
+			<p>
+				Viel Spa&szlig; w&uuml;nscht euch Norbert!
+
+			<p>
+
+			There is an old audio recording of a talk about the Austrian "Mailuefterl" computer I gave ten years ago in German language on the
+			<a href="http://www.vcfe.org/D/" target="_blank">Vintage Computer Festival Europe</a> in Munich (May 1, 2009).
+			I created a video out of that audio file by adding the slides I showed on the talk, and by replacing the live demo
+			with my old Java-based emulator by a demo on my new JavaScript-based Mailuefterl emulator.
+					<p>
+			Here is the video:
+			<p>
+			<iframe width="478" height="269" src="https://www.youtube.com/embed/rq4Lc_w8kO0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+			
+			
+
+
+
+<!-- *********************************************************************************************** -->
+    </div>
+  </body>
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Norbert</title>
+    <link rel="stylesheet" href="norbert.css">
+    <script src="norbert.js"></script>
+  </head>
+  <body>
+    <div id="page_content">
+<!-- *********************************************************************************************** -->
+
+
+
+<h2>Teletext Reader for the Commodore 64</h2>
+
+	At a Commodore meeting in Vienna a visitor said, that it would be nice to read teletext pages on a Commodore 64.
+	I thought so too, and wrote a teletext reader, but probably based on a different concept, than originally imagined
+	by that C64 fan. <a href="https://en.wikipedia.org/wiki/Teletext" target="_blank">Teletext</a> is made up of
+	(almost pure) text pages with 24 lines and 40 columns, and it is broadcast by many TV stations via the television signal
+	in the so-called vertical blanking interval lines. The contents offered in these pages are mainly news, weather,
+	TV schedules, etc.
+	<p>
+	To read the teletext pages on a Commodore 64 you would have to build some hardware to extract the data from
+	the TV signal and feed it into the C64. This would also be a really interesting Retro project in itself, but for
+	my simple reader I used an alternative method. Many TV stations offer their teletext contents also on their
+	web sites for reading them in the browser. So, I wrote C programs to download all the teletext pages of a specific
+	TV station to your Windows PC and convert them
+	into files readable by my C64 teletext reader program. Each teletext page will then become one file for the C64.
+	You can then copy all these files and the reader program to an SD card and take your time to read them on
+	the Commodore. The pages are identified by 3-digit numbers, which you can enter in the C64 reader and select
+	the page with the "Return" key. The function keys offer some simple navigation functions, like going back to
+	the last page, etc.
+	<p>
+	The program can be downloaded as a zip file here: <a href="teletext_c64/teletext.zip">teletext.zip</a>.
+	<p>
+	The archive contains Windows programs you run on the Windows command line. It will then download and convert
+	all the teletext pages of the selected channel to a C64 readable format and store them as files in a directory
+	called "pages". This takes about 20 seconds to 10 minutes. Then the teletext reader program for the Commodore 64
+	is copied to this "pages" directory also, and you are ready to take this whole directory over to your Commodore 64,
+	e.g. on an SD card. Have a look at the "readme.txt" file in the archive for the details.
+	<p>
+	If you want to write your own downloader for your favorite TV station's teletext, you find the format of the
+	C64 files to be generated below:
+	<p>
+	<pre>
+        Position (hex)    Contents
+        -------------------------------------------------------------------------
+        $0000-$0001       Load address (low byte/high byte). Always has to be
+                          0x00/0x40 (i.e. address $4000).
+
+        $0002-$03c1       40 x 24 bytes for the text of the page (ASCII and
+                          special characters).
+
+        $03c2             Separator. Always has to be 0x00.
+
+        $03c3-$0782       40 x 24 bytes for color and width/height information
+                          for each character of the teletext page. The 8 bits
+                          of each byte are interpreted as "hfffwbbb", with:
+                          h   ... Double height indicator (0=normal, 1=double)
+                          fff ... Text color in C64 color code format (0-7)
+                          w   ... Double width indicator (0=normal, 1=double)
+                          bbb ... Background color in C64 color code format (0-7)
+        -------------------------------------------------------------------------
+	</pre>
+	<p>
+
+	Below you see some screenshots of the result:
+	<p>
+
+	<table>
+	<tr><td align="center">
+	<img src="teletext_c64/teletext1.png" alt="Norbert Kehrer's Commodore 64 Teletext Reader"></td>
+	<td align="center">
+	<img src="teletext_c64/teletext2.png" alt="Norbert Kehrer's Commodore 64 Teletext Reader">
+	</td></tr>
+	<tr><td align="center">
+	<img src="teletext_c64/teletext3.png" alt="Norbert Kehrer's Commodore 64 Teletext Reader"></td>
+	<td align="center">
+	<img src="teletext_c64/teletext4.png" alt="Norbert Kehrer's Commodore 64 Teletext Reader">
+	<tr><td align="center">
+	<img src="teletext_c64/teletext5.png" alt="Norbert Kehrer's Commodore 64 Teletext Reader"></td>
+	<td align="center">
+	<img src="teletext_c64/teletext6.png" alt="Norbert Kehrer's Commodore 64 Teletext Reader">
+	<tr><td align="center">
+	<img src="teletext_c64/teletext7.png" alt="Norbert Kehrer's Commodore 64 Teletext Reader"></td>
+	<td align="center">
+	<img src="teletext_c64/teletext8.png" alt="Norbert Kehrer's Commodore 64 Teletext Reader">
+	<tr><td align="center">
+	<img src="teletext_c64/teletext_orfiii_1.png" alt="Norbert Kehrer's Commodore 64 Teletext Reader"></td>
+	<td align="center">
+	<img src="teletext_c64/teletext_orfiii_2.png" alt="Norbert Kehrer's Commodore 64 Teletext Reader">
+	</td></tr>
+	<tr><td align="center">
+	<img src="teletext_c64/teletext_orfsportplus_1.png" alt="Norbert Kehrer's Commodore 64 Teletext Reader"></td>
+	<td align="center">
+	<img src="teletext_c64/teletext_orfsportplus_2.png" alt="Norbert Kehrer's Commodore 64 Teletext Reader"></td>
+	<tr><td align="center">
+	<img src="teletext_c64/teletext_zdf_1.png" alt="Norbert Kehrer's Commodore 64 Teletext Reader"></td>
+	<td align="center">
+	<img src="teletext_c64/teletext_zdf_2.png" alt="Norbert Kehrer's Commodore 64 Teletext Reader"></td>
+	<tr><td align="center">
+	<img src="teletext_c64/teletext_zdf_3.png" alt="Norbert Kehrer's Commodore 64 Teletext Reader"></td>
+	<td align="center">
+	<img src="teletext_c64/teletext_zdf_4.png" alt="Norbert Kehrer's Commodore 64 Teletext Reader"></td>
+	<tr><td align="center">
+	<img src="teletext_c64/teletext_zdf_5.png" alt="Norbert Kehrer's Commodore 64 Teletext Reader"></td>
+	<td align="center">
+	<img src="teletext_c64/teletext_zdf_6.png" alt="Norbert Kehrer's Commodore 64 Teletext Reader"></td>
+	<tr><td align="center">
+	<img src="teletext_c64/teletext_ard_1.png" alt="Norbert Kehrer's Commodore 64 Teletext Reader"></td>
+	<td align="center">
+	<img src="teletext_c64/teletext_ard_2.png" alt="Norbert Kehrer's Commodore 64 Teletext Reader"></td>
+	<tr><td align="center">
+	<img src="teletext_c64/teletext_ard_3.png" alt="Norbert Kehrer's Commodore 64 Teletext Reader"></td>
+	<td align="center">
+	<img src="teletext_c64/teletext_ard_4.png" alt="Norbert Kehrer's Commodore 64 Teletext Reader"></td>
+	<tr><td align="center">
+	<img src="teletext_c64/teletext_ard_5.png" alt="Norbert Kehrer's Commodore 64 Teletext Reader"></td>
+	<td align="center">
+	<img src="teletext_c64/teletext_ard_6.png" alt="Norbert Kehrer's Commodore 64 Teletext Reader"></td>
+	<tr><td align="center">
+	<img src="teletext_c64/teletext_br_1.png" alt="Norbert Kehrer's Commodore 64 Teletext Reader"></td>
+	<td align="center">
+	<img src="teletext_c64/teletext_br_2.png" alt="Norbert Kehrer's Commodore 64 Teletext Reader"></td>
+	<tr><td align="center">
+	<img src="teletext_c64/teletext_br_3.png" alt="Norbert Kehrer's Commodore 64 Teletext Reader"></td>
+	<td align="center">
+	<img src="teletext_c64/teletext_br_4.png" alt="Norbert Kehrer's Commodore 64 Teletext Reader"></td>
+	</table>
+
+
+
+<!-- *********************************************************************************************** -->
+    </div>
+  </body>
+</html>
+

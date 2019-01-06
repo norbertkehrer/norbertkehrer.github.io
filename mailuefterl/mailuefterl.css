@@ -1,0 +1,237 @@
+﻿
+body {
+	background-color: 	Grey;
+	color:				White;
+	font-family: 		Sans-serif;
+	font-size: 			80%;
+}
+
+a {
+	color:				White;
+}
+
+select option {
+	font-family: 		Monospace;
+	background-color: 	Black;
+	color:				White;
+}
+
+
+.blackTable {
+	background-color: 	Black;
+}
+
+
+.anz_beschr_table {
+	border-collapse:	collapse;
+	text-align:			center;
+	font-weight:		bold;
+}
+
+.anz_beschr_tr {
+	border-collapse:	collapse;
+	text-align:			center;
+}
+
+.anz_beschr_td_1_leer {
+	border-collapse:	collapse;
+	text-align:			center;
+	width:				20px;
+	height:				20px;
+}
+
+.anz_beschr_td_1 {
+	border:				2px solid White;
+	border-collapse:	collapse;
+	text-align:			center;
+	width:				20px;
+	height:				20px;
+}
+
+.anz_beschr_td_3 {
+	border:				2px solid White;
+	border-collapse:	collapse;
+	text-align:			center;
+	width:				60px;
+	height:				20px;
+}
+
+.anz_beschr_td_4 {
+	border:				2px solid White;
+	border-collapse:	collapse;
+	text-align:			center;
+	width:				80px;
+	height:				20px;
+}
+
+.anz_beschr_td_8 {
+	border:				2px solid White;
+	border-collapse:	collapse;
+	text-align:			center;
+	width:				160px;
+	height:				20px;
+}
+
+.anz_beschr_td_16 {
+	border:				2px solid White;
+	border-collapse:	collapse;
+	text-align:			center;
+	width:				320px;
+	height:				20px;
+}
+
+.anz_beschr_td_20 {
+	border:				2px solid White;
+	border-collapse:		collapse;
+	text-align:			center;
+	width:				400px;
+	height:				20px;
+}
+
+
+.anz_lampe_tr {
+	border:				2px solid White;
+	border-collapse:	collapse;
+	text-align:			center;
+}
+
+.anz_lampe_td {
+	border-collapse:	collapse;
+	text-align:			center;
+	width:				20px;
+	height:				40px;
+}
+
+.lamp_off {
+	background:			DimGrey;
+}
+
+.lamp_on {
+	background:			Lime;
+	/* background:			OrangeRed; */
+}
+
+
+.zahl_table {
+	border-collapse:	collapse;
+	text-align:			center;
+	font-weight:		bold;
+}
+
+.zahl_tr {
+	border-collapse:	collapse;
+	text-align:			center;
+}
+
+.zahl_td {
+	border-collapse:	collapse;
+	text-align:			center;
+	width:				96px;
+	height:				20px;
+}
+
+
+.funkt_bit_td {
+	border-collapse:	collapse;
+	text-align:			center;
+	width:				64px;
+	height:				20px;
+}
+
+.zahl_beschr_td {
+	border-collapse:	collapse;
+	text-align:			center;
+	width:				96px;
+	height:				20px;
+}
+
+.teleprinter_textarea {
+	white-space: 		pre;
+ 	overflow-x: 		scroll;
+}
+
+.tapereader_textarea {
+	white-space: 		pre;
+ 	overflow-x: 		scroll;
+}
+
+.tracer_textarea {
+	white-space: 		pre;
+ 	overflow-x: 		scroll;
+}
+
+.register_display_textarea {
+	white-space: 		pre;
+ 	overflow: 			hidden;
+	resize: 			none;
+}
+
+
+/* tab strips */
+.layout {
+	margin: 				auto;
+}
+.tabStrip ul {
+	margin: 				0;
+	padding: 				0;
+	list-style-type: 		none;
+}
+.tabStrip li {
+	position: 				relative;
+	margin: 				0 2px 0 0;
+	list-style-type: 		none;
+	float: 					left;
+}
+.tabLink {
+	display:				block;
+	text-decoration:		none;
+	padding: 				2px 15px 2px 15px;
+	background: 			#373737 repeat-x;
+	background-position:	0 -50px;
+	color:					#909090;
+	white-space:			nowrap;
+	font-weight:			bold;
+}
+.tabLink:hover {
+	background-position:	0 0;
+}
+.tabLinkActive {
+	display:				block;
+	text-decoration:		none;
+	padding:				2px 15px 2px 15px;
+	background:				#474747 repeat-x;
+	background-position:	0 -50px;
+	color:					#ffffff;
+	white-space:			nowrap;
+	font-weight:			bold;
+}
+.tabLinkActive:hover {
+	background-position: 	 0;
+}
+.tabContent {
+	display: 				none;
+}
+.tabContentActive {
+	display: 				block;
+	clear: 					both;
+	background: 			#474747;
+	padding: 				2px;
+	margin: 				0 0 2px 0;
+}
+
+
+.BL {
+	bottom: 				0;
+	left: 					0;
+	background-position: 	0 -10px;
+}
+.BR {
+	bottom: 				0;
+	right: 					0;
+	background-position: 	-10px -10px;
+}
+
+
+
+
+

@@ -1,0 +1,76 @@
+<html>
+	<head>
+		<title>
+		Norbert Kehrer's Static Binary Translation of Asteroids to JavaScript
+		</title>
+
+	</head>
+
+	<body id="" onkeydown="keyPressed(event)" onkeyup="keyReleased(event)" bgColor = "#aaaaaa">
+
+		<audio src="sound/YOURFIRE1.WAV" id="player_fire" autostart="false"></audio>
+		<audio src="sound/LARGEXPL1.WAV" id="large_expl" autostart="false"></audio>
+		<audio src="sound/MEDUMXPL1.WAV" id="medium_expl" autostart="false"></audio>
+		<audio src="sound/SMALLXPL1.WAV" id="small_expl" autostart="false"></audio>
+		<audio src="sound/BEAT11.WAV"    id="beat1" autostart="false"></audio>
+		<audio src="sound/BEAT21.WAV"    id="beat2"  autostart="false"></audio>
+		<audio src="sound/LSAUCER.WAV"   id="lsaucer" autostart="false" loop></audio>
+		<audio src="sound/SSAUCER.WAV"   id="ssaucer" autostart="false" loop></audio>
+		<audio src="sound/UFOFIRE1.WAV"  id="ufo_fire" autostart="false"></audio>
+		<audio src="sound/THRUST.WAV"    id="thrust" autostart="false" loop></audio>
+		<audio src="sound/EXTRAMAN1.WAV" id="extra" autostart="false" loop></audio>
+
+		<font color="#000000" size="3" face="Arial">
+
+		<table border=0>
+			<tr>
+				<td align=center width=710>
+					<canvas id="myCanvas" width="700" height="600" style="border:1px solid #000000;">
+					</canvas> 
+				<td align=center>
+					<table width=340>
+						<tr>
+							<td height=10>
+						<tr align=left>
+							<td>
+								<img src="m_asteroids.jpg"> <p>
+						<tr align=left height=412>
+							<td>
+								<font color="#000000" size="5" face="Arial">
+								Asteroids in JavaScript<p>
+								<font color="#000000" size="3" face="Arial">
+								Original game by Atari Inc. in 1979.<p>
+								Exact port of the original to JavaScript 
+								using the method of static binary translation
+								in October 2005 and in June 2014 by Norbert Kehrer.
+								<p>
+								Read more about it on my homepage at
+								<a href="http://members.aon.at/~nkehrer/">http://members.aon.at/~nkehrer/</a>  
+								<p>
+								<u>Keys to play:</u><br>
+								<table border=0>
+									<tr><td width = 130>Rotate Left	<td>Crsr Left, Z, or Y<br>
+									<tr><td>Rotate Right	<td>Right or X<br>
+									<tr><td>Fire		<td>Ctrl or M
+									<tr><td>Thrust		<td>Up or N
+									<tr><td>Hyperspace	<td>Space
+									<tr><td>Start 1 Player	<td>1
+									<tr><td>Start 2 Players	<td>2
+									<tr><td>Insert Coin	<td>5, or 6, or 7
+									<tr><td>Pause Game	<td>P
+									<tr height=40 align=bottom><td>Visits	<td><img src=/counter@aon?face=tiny>
+								</table>
+					</table>
+
+		</table>
+
+
+
+		<script type="text/javascript" src="Asteroids.js">
+		</script>
+
+
+
+
+	</body>
+</html>
