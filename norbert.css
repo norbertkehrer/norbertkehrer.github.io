@@ -1,106 +1,111 @@
 
-.urbangreymenu{
-width: 190px; /*width of menu*/
+.urbangreymenu {
+    width: 190px; /*width of menu*/
 }
 
-.urbangreymenu .headerbar{
-font: bold 12pt Verdana;
-color: white;
-background: #606060 url(media/downgreen.gif) no-repeat 8px 6px; /*last 2 values are the x and y coordinates of bullet image*/
-margin-bottom: 0; /*bottom spacing between header and rest of content*/
-text-transform: uppercase;
-padding: 7px 0 7px 31px; /*31px is left indentation of header text*/
+.urbangreymenu .headerbar {
+    font: bold 12pt Verdana;
+    color: white;
+    background: #606060 url(media/downgreen.gif) no-repeat 8px 6px; /*last 2 values are the x and y coordinates of bullet image*/
+    margin-bottom: 0; /*bottom spacing between header and rest of content*/
+    text-transform: uppercase;
+    padding: 7px 0 7px 31px; /*31px is left indentation of header text*/
 }
 
-.urbangreymenu ul{
-list-style-type: none;
-margin: 0;
-padding: 0;
-margin-bottom: 0; /*bottom spacing between each UL and rest of content*/
+.urbangreymenu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    margin-bottom: 0; /*bottom spacing between each UL and rest of content*/
 }
 
-.urbangreymenu ul li{
-padding-bottom: 2px; /*bottom spacing between menu items*/
+.urbangreymenu ul li {
+    padding-bottom: 2px; /*bottom spacing between menu items*/
 }
 
-.urbangreymenu ul li a{
-font: normal 12pt Arial;
-color: black;
-background: #E9E9E9;
-display: block;
-padding: 5px 0;
-/* line-height: 17px; */
-padding-left: 8px; /*link text is indented 8px*/
-text-decoration: none;
+.urbangreymenu ul li a {
+    font: normal 12pt Arial;
+    color: black;
+    background: #E9E9E9;
+    display: block;
+    padding: 5px 0;
+    /* line-height: 17px; */
+    padding-left: 8px; /*link text is indented 8px*/
+    text-decoration: none;
 }
 
-.urbangreymenu ul li a:visited{
-color: black;
+.urbangreymenu ul li a:visited {
+    color: black;
 }
 
-.urbangreymenu ul li a:hover{ /*hover state CSS*/
-color: white;
-background: black;
+.urbangreymenu ul li a:hover { /*hover state CSS*/
+    color: white;
+    background: black;
 }
 
 
 
-body{
-font: normal 12pt Arial;
-background-color: white;
-color: black;
-margin:0;
-padding:0;
-line-height: 1.5em;
+body {
+    font: normal 12pt Arial;
+    background-color: white;
+    color: black;
+    margin:0;
+    padding:0;
+    line-height: 1.5em;
 }
 
-b{font-size: 110%;}
-em{color: red;}
-
-
-#topsection{
-background: #E9E9E9;
-height: 70px; /*Height of top section*/
+b {
+    font-size: 110%;
 }
 
-#topsection h1{
-margin: 0;
-padding-top: 15px;
+em {
+    color: red;
 }
 
-#contentwrapper{
-float: left;
-width: 100%;
+
+#topsection {
+    background: #E9E9E9;
+    height: 70px; /*Height of top section*/
 }
 
-#contentcolumn{
-margin-left: 200px; /*Set left margin to LeftColumnWidth*/
+#topsection h1 {
+    margin: 0;
+    padding-top: 15px;
 }
 
-#leftcolumn{
-float: left;
-width: 200px; /*Width of left column*/
-margin-left: -100%;
-background: white;
+#contentwrapper {
+    float: left;
+    width: 100%;
 }
 
-#footer{
-clear: left;
-width: 100%;
-background: #606060;
-color: white;
-font: bold 12pt Verdana;
-text-align: center;
-padding: 4px 0;
+#contentcolumn {
+    margin-left: 200px; /*Set left margin to LeftColumnWidth*/
 }
 
-#footer a{
-color: #FFFF80;
+#leftcolumn {
+    float: left;
+    width: 200px; /*Width of left column*/
+    margin-left: -100%;
+    background: white;
 }
 
-.innertube{
-margin: 10px; /*Margins for inner DIV inside each column (to provide padding)*/
-margin-top: 0;
+#footer {
+    clear: left;
+    width: 100%;
+    background: #606060;
+    color: white;
+    font: bold 12pt Verdana;
+    text-align: center;
+    padding: 4px 0;
+}
+
+#footer a {
+    color: #FFFF80;
+}
+
+.innertube {
+    margin: 10px; /*Margins for inner DIV inside each column (to provide padding)*/
+    margin-top: 0;
 }
 
 

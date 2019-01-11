@@ -14,6 +14,7 @@ var the_menu = [
          ["Centipede Binary Translation to JavaScript",     "centipede_js.html"],
          ["Sprint Binary Translation to JavaScript",        "sprint_js.html"],
          ["HP-45 Binary Translation to JavaScript",         "hp45_js.html"],
+         ["Tailgunner Binary Translation to JavaScript",    "tailgunner.html"],
          ["IBM 5110 Emulator",                              "ibm5110_js.html"],
          ["Mailuefterl Emulator",                           "mailuefterl.html"],
          ["Zuse Z22 Emulator",                              "z22.html"]
