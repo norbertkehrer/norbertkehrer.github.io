@@ -1,0 +1,86 @@
+<html>
+	<head>
+		<title>
+		Norbert Kehrer's and Graham Toal's Static Binary Translation of Tailgunner to JavaScript
+		</title>
+		<style>
+			body {
+				background-color: #000000;
+				font-family: Arial;
+				color: #88aaff;
+			}
+			h2 {
+				font-family: Georgia;
+				color: LightGrey;
+			}
+			a {
+				color: LightGrey;
+			}
+			button {
+				background-color: #88aaff;
+				font-family: Arial;
+				font-weight: bold;
+				color: black;
+			}
+			canvas {
+				border: 1px solid #88aaff;
+				cursor: none; 
+			};
+		</style>
+	</head>
+
+	<body onkeydown="keyPressed(event)" onkeyup="keyReleased(event)" onload="run()">
+
+		<audio src="sound/bounce.wav"   id="audio_bounce"   autostart="false"></audio>
+		<audio src="sound/coin.wav"     id="audio_coin"     autostart="false"></audio>
+		<audio src="sound/hypersp.wav"  id="audio_hypersp"  autostart="false"></audio>
+		<audio src="sound/sexplode.wav" id="audio_sexplode" autostart="false"></audio>
+		<audio src="sound/shield.wav"   id="audio_shield"   autostart="false" loop></audio>
+		<audio src="sound/slaser.wav"   id="audio_slaser"   autostart="false"></audio>
+		<audio src="sound/star.wav"     id="audio_star"     autostart="false"></audio>
+		<audio src="sound/thrust.wav"   id="audio_thrust"   autostart="false" loop></audio>
+
+		<table border="0">
+			<tr valign="top">
+				<td align="left" width="778">
+					<canvas id="myCanvas" width="768" height="576"></canvas> 
+				<td align="center">
+					<table width="400">
+						<tr align="left">
+							<td>
+								<img src="m_tailgunner.jpg"> <p>
+						<tr align="left" height="412">
+							<td>
+								&nbsp;<p>
+								<h2>Tailgunner in JavaScript</h2>
+								Exact port of the original arcade game to JavaScript using the method of static binary translation.
+								<p>
+								<a href="http://www.geometryalgorithms.com">Dan Sunday</a> &hellip; Original game program (1979)
+								<p>
+								<a href="http://www.gtoal.com">Graham Toal</a> &hellip; Static binary translation (2004)
+								<p>
+								<a href="http://members.aon.at/nkehrer">Norbert Kehrer</a> &hellip; JavaScript code (2019)
+								<p>
+								&nbsp;<p>
+								<u>Keys to play:</u><br>
+								<table border="0">
+									<tr><td>Movement	<td> &hellip; Mouse or cursor keys
+									<tr><td>Fire		<td> &hellip; Mouse button or "Ctrl"
+									<tr><td>Shield		<td> &hellip; "Space"
+									<tr><td>Start Game	<td> &hellip; "1"
+									<tr><td>Insert Coin	<td> &hellip; "5", or "6", or "7"
+									<tr><td>Pause Game	<td> &hellip; "P"
+								</table>
+					</table>
+
+			<tr>
+				<td>
+					<button type="button" onclick="buttonClicked('coin')">Insert Coin</button>
+					<button type="button" onclick="buttonClicked('start')">Start Game</button>
+					<input type="checkbox" name="use_mouse" value="mouse" onclick="mouseControlChanged(this)" checked> Control with mouse
+		</table>
+
+		<script type="text/javascript" src="tailgunner_sbt.js"></script>
+
+	</body>
+</html>
