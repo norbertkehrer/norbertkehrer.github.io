@@ -29,7 +29,7 @@
 		</style>
 	</head>
 
-	<body onkeydown="keyPressed(event)" onkeyup="keyReleased(event)" onload="run()">
+	<body onload="run()" onkeydown="keyPressed(event)" onkeyup="keyReleased(event)">
 
 		<audio src="sound/bounce.wav"   id="audio_bounce"   autostart="false"></audio>
 		<audio src="sound/coin.wav"     id="audio_coin"     autostart="false"></audio>
@@ -69,15 +69,18 @@
 									<tr><td>Shield		<td> &hellip; "Space"
 									<tr><td>Start Game	<td> &hellip; "1"
 									<tr><td>Insert Coin	<td> &hellip; "5", or "6", or "7"
-									<tr><td>Pause Game	<td> &hellip; "P"
 								</table>
 					</table>
 
 			<tr>
 				<td>
-					<button type="button" onclick="buttonClicked('coin')">Insert Coin</button>
-					<button type="button" onclick="buttonClicked('start')">Start Game</button>
-					<input type="checkbox" name="use_mouse" value="mouse" onclick="mouseControlChanged(this)" checked> Control with mouse
+					<div style="float:left;">
+						<button type="button" onclick="buttonClicked('coin')">Insert Coin</button>
+						<button type="button" onclick="buttonClicked('start')">Start Game</button>
+					</div>
+					<div style="float:right;">
+						<input type="checkbox" name="use_mouse" value="mouse" onclick="mouseControlChanged(this)" checked>Control with mouse
+					</div>
 		</table>
 
 		<script type="text/javascript" src="tailgunner_sbt.js"></script>
