@@ -1,29 +1,29 @@
 
-.menu {
+.urbangreymenu {
     width: 190px; /*width of menu*/
 }
 
-.menu .headerbar {
+.urbangreymenu .headerbar {
     font: bold 12pt Verdana;
     color: white;
-    background: #606060;
+    background: #606060 url(media/downgreen.gif) no-repeat 8px 6px; /*last 2 values are the x and y coordinates of bullet image*/
     margin-bottom: 0; /*bottom spacing between header and rest of content*/
     text-transform: uppercase;
-    padding: 7px 0 7px 5px; /*31px is left indentation of header text*/
+    padding: 7px 0 7px 31px; /*31px is left indentation of header text*/
 }
 
-.menu ul {
+.urbangreymenu ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
     margin-bottom: 0; /*bottom spacing between each UL and rest of content*/
 }
 
-.menu ul li {
+.urbangreymenu ul li {
     padding-bottom: 2px; /*bottom spacing between menu items*/
 }
 
-.menu ul li a {
+.urbangreymenu ul li a {
     font: normal 12pt Arial;
     color: black;
     background: #E9E9E9;
@@ -34,33 +34,15 @@
     text-decoration: none;
 }
 
-.menu ul li a:visited {
+.urbangreymenu ul li a:visited {
     color: black;
 }
 
-.menu ul li a:hover { /*hover state CSS*/
-    background: lime;
+.urbangreymenu ul li a:hover { /*hover state CSS*/
+    color: white;
+    background: black;
 }
 
-
-.article-card {
-    margin-top: 0px;
-    margin-bottom: 6em;
-    margin-right: 10em;
-    padding-top: 1px;
-    padding-left: 10px;
-    padding-right: 10px;
-    /* background: #E9E9E9;*/
-}
-
-.article-title {
-    font-size: x-large;
-    font-weight: bold;
-}
-
-.article-date {
-    font-size: small;
-}
 
 
 body {
@@ -72,22 +54,22 @@ body {
     line-height: 1.5em;
 }
 
-h1 {
-    font-family: 'Arial Black', Arial, Helvetica, sans-serif;
-    font-size: 45px;
-    line-height: 1.2em;
-    font-weight: bold;
+b {
+    font-size: 110%;
 }
 
+em {
+    color: red;
+}
 
 
 #topsection {
     background: #E9E9E9;
-    height: 90px; /*Height of top section*/
+    height: 70px; /*Height of top section*/
 }
 
 #topsection h1 {
-    margin: 10px;
+    margin: 0;
     padding-top: 15px;
 }
 
@@ -97,7 +79,7 @@ h1 {
 }
 
 #contentcolumn {
-    margin-left: 240px; /*Set left margin to LeftColumnWidth*/
+    margin-left: 200px; /*Set left margin to LeftColumnWidth*/
 }
 
 #leftcolumn {
@@ -115,6 +97,10 @@ h1 {
     font: bold 12pt Verdana;
     text-align: center;
     padding: 4px 0;
+}
+
+#footer a {
+    color: #FFFF80;
 }
 
 .innertube {

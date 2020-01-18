@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>WASM Demo</title>
+</head>
+
+<body style="background: black; color: slateblue">
+
+    <table>
+        <tr>
+            <td>
+                <canvas id="screen" width="500px" height="500px"></canvas>
+            </td>
+            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+            <td>
+                <h2 style="font-family: Helvetica">Lost in the Eighties</h2>
+                <h2 style="font-family: Helvetica">Norbert's WASM Plasma</h2>
+                <p style="font-family: Helvetica">
+                    Homepage: <a href="http://members.aon.at/nkehrer">http://members.aon.at/nkehrer</a>
+                </p>
+                <p style="font-family: Helvetica">
+                    Source code on github: <a
+                        href="https://github.com/norbertkehrer/wasm_plasma">https://github.com/norbertkehrer/wasm_plasma</a>
+                </p>
+                <br>
+                <div><input type="range" min="0" max="15" value="2" class="slider" id="slider_0"> <span style="font-family: Helvetica" id="value_0">2</span></div>
+                <div><input type="range" min="0" max="15" value="3" class="slider" id="slider_1"> <span style="font-family: Helvetica" id="value_1">3</span></div>
+                <div><input type="range" min="0" max="15" value="5" class="slider" id="slider_2"> <span style="font-family: Helvetica" id="value_2">5</span></div>
+                <div><input type="range" min="0" max="15" value="3" class="slider" id="slider_3"> <span style="font-family: Helvetica" id="value_3">3</span></div>
+                <div><input type="range" min="0" max="15" value="7" class="slider" id="slider_4"> <span style="font-family: Helvetica" id="value_4">7</span></div>
+                <div><input type="range" min="0" max="15" value="8" class="slider" id="slider_5"> <span style="font-family: Helvetica" id="value_5">8</span></div>
+                <div><input type="range" min="0" max="15" value="2" class="slider" id="slider_6"> <span style="font-family: Helvetica" id="value_6">2</span></div>
+                <div><input type="range" min="0" max="15" value="8" class="slider" id="slider_7"> <span style="font-family: Helvetica" id="value_7">8</span></div>
+                <div><input type="range" min="0" max="15" value="3" class="slider" id="slider_8"> <span style="font-family: Helvetica" id="value_8">3</span></div>
+                <div><input type="range" min="0" max="15" value="3" class="slider" id="slider_9"> <span style="font-family: Helvetica" id="value_9">3</span></div>
+                <div><input type="range" min="0" max="15" value="3" class="slider" id="slider_10"> <span style="font-family: Helvetica" id="value_10">3</span></div>
+                <div><input type="range" min="0" max="15" value="4" class="slider" id="slider_11"> <span style="font-family: Helvetica" id="value_11">4</span></div>
+            </td>
+        </tr>
+    </table>
+
+    <script src="wasm_data.js"></script>
+    <script src="wasm.js"></script>
+
+</body>
+
+</html>
