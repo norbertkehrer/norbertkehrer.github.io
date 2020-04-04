@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>
+		A Behavioral Theory of the Firm in JavaScript by Norbert Kehrer
+	</title>
+
+	<script type="text/javascript" src="ABTOF.js"></script>
+	<script type="text/javascript" src="ABTOF_original_code.js"></script>
+
+
+	<style>
+		html {
+			background: #dddddd;
+			background-image:
+				radial-gradient(rgba(221, 221, 221, 0) 0%, rgba(221, 221, 221, 0) 29%, #ffffff 31%, #ffffff 100%),
+				radial-gradient(rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 29%, rgba(0, 0, 0, .15) 31%, rgba(0, 0, 0, .15) 100%),
+				radial-gradient(rgba(221, 221, 221, 0) 0%, rgba(221, 221, 221, 0) 29%, #ffffff 31%, #ffffff 100%),
+				radial-gradient(rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 29%, rgba(0, 0, 0, .15) 31%, rgba(0, 0, 0, .15) 100%);
+			background-position:
+				left top,
+				left 1px,
+				right top,
+				right 1px;
+			background-repeat: repeat-y;
+			background-size: 40px 40px;
+			padding: 0 40px;
+		}
+
+		body {
+			font-family: monospace;
+			border-width: 0 1px;
+			border-style: dashed;
+			border-color: #dcdfdb;
+			padding: 20px;
+			margin: 0;
+			background-color: #eff7ed;
+		}
+
+		hr {
+			border: 1px dashed #000;
+			width: 100%;
+			margin: auto;
+			margin-top: 24px;
+			margin-bottom: 24px;
+		}
+
+		h1 {
+			font-size: 32px;
+			margin-top: 32px;
+		}
+
+		h2 {
+			font-size: 24px;
+			margin-top: 64px;
+		}
+
+		button {
+			font-family: monospace;
+			font-size: 16px;
+			text-shadow: 0 0 1px;
+			background-color: #9adc9a;
+		}
+
+		input,
+		select {
+			font-family: monospace;
+			font-size: 16px;
+			text-shadow: 0 0 1px;
+		}
+
+		.print_out {
+			text-shadow: 0 0 1px;
+			font-size: 16px;
+			line-height: 20px;
+			border: 1px solid green;
+			padding: .1px 20px;
+			background-color: white;
+			/*background-image: linear-gradient(to bottom, white 0px, white 59px, darkseagreen 60px, palegreen 61px, palegreen 119px, darkseagreen 120px);*/
+			background-image: linear-gradient(to bottom, white 0px, white 59px, darkseagreen 60px, #ddf5dd 61px, #ddf5dd 119px, darkseagreen 120px);
+			background-size: 100% 120px;
+		}
+	</style>
+</head>
+
+
+<body onload="main();" class="print_out">
+
+	<h1>A Behavioral Theory of the Firm</h1>
+
+	Original by <a href="https://de.wikipedia.org/wiki/Richard_Cyert" target="_blank">Richard Cyert</a> and
+	<a href="https://de.wikipedia.org/wiki/James_March" target="_blank">James March</a> in 1962.<br>
+	Ported to JavaScript by <a href="http://members.aon.at/nkehrer" target="_blank">Norbert Kehrer</a> in 2020.
+
+	<h2>Background</h2>
+
+	<p id="background_info_short">
+		In 1963, Richard M. Cyert and James G. March from the Carnegie Institute of Technology (now Carnegie Mellon
+		University) published a book, in which they ... <a href="#" role="button"
+			onclick="set_type_of_background_info('long');">&#9660; Read more</a>
+	</p>
+
+	<div id="background_info_long" style="display: none;">
+		<p>
+			In 1963, Richard M. Cyert and James G. March from the Carnegie Institute of Technology (now Carnegie Mellon
+			University) published a book, in which they describe their behavioral theory of the firm.
+			The exact citation is:
+			<blockquote>
+				Cyert, Richard M. and March, James G., <em>A Behavioral Theory of the Firm</em>, Englewood Cliffs, NJ,
+				Prentice-Hall, 1963.
+			</blockquote>
+		</p>
+		<p>
+			Therein, Cyert and March describe their theory of decision making in business organizations. They combine
+			microeconomic theory with a study of the internal processes of a company concerning the formation of goals,
+			expectations, and the implementation of choices. The behavioral theory of the firm made a great impact and
+			has become important for much more recent research in organization theory and management (see
+			<a href="https://en.wikipedia.org/wiki/A_Behavioral_Theory_of_the_Firm" target="_blank">[ABTOF]</a>).
+		</p>
+		<p>
+			The book luckily also contains a complete listing of a computer program written in the very old programming
+			language 20-GATE (Generalized Algebraic Translator, Extended) for the
+			<a href="https://en.wikipedia.org/wiki/Bendix_G-20" target="_blank">Bendix G-20</a>
+			mainframe, as well as a sample printout of a program run. According to the source code, the program is from
+			June 23, 1962. It implements the theoretical concepts and performs a simulation of two firms in a
+			duopoly model over 50 time periods.
+		</p>
+		<p>
+			This is the attempt of a "perfect" translation of the original 20-GATE program to JavaScript. Almost sixty
+			years
+			later, in March 2020, I hand-translated the 20-GATE code statement by statement to a semantically equivalent
+			JavaScript program. Special care was taken to have as much as possible a 1:1 relationship between the
+			original
+			and the translated code and to exactly reproduce the original control flow (with quite some GOTO
+			statements).
+		</p>
+		<p>
+			The output of the resulting JavaScript program can be seen below. The printout is formatted like the
+			printout of
+			the sample run in the book. The figures are not exactly the same, though, because the original program uses
+			random numbers. Reproducing exactly the same random number stream would require a detailed knowledge on the
+			implementation of the random number generator in the 20-GATE compiler.
+		</p>
+		<p>
+			The original program took a set of punched cards as its input data and produced a long printout of data for
+			50 time periods. The JavaScript version also generates this printout, but I added also a simple line graph
+			feature to view the development of a selected variable and the possibility to generate and download a "csv"
+			file of all the output data, so that you can analyze it in a spreadsheet, statistics package, or in your own
+			self-written programs.
+		</p>
+		<p>
+			The source code of my JavaScript program is available on
+			<a href="https://github.com/norbertkehrer/abtof" target="_blank">GitHub</a>.
+		</p>
+		<p>
+			More information can be obtained from my website <a href="http://members.aon.at/nkehrer"
+				target="_blank">Norbert's Emulators</a>.
+		</p>
+		<p>
+			Have fun.
+		</p>
+		<p>
+			Norbert
+		</p>
+		<a href="#" role="button" onclick="set_type_of_background_info('short')">&#9650; Read less</a>
+	</div>
+
+	<h2>Program Run</h2>
+
+	<p>
+		<div>
+			<label for="nr_of_runs">Number of simulation runs (50 periods each):</label>
+			<input type="number" id="nr_of_runs" name="nr_of_runs" min="1" step="1" value="1">
+		</div>
+	</p>
+	<p>
+		<div>
+			Printout:
+		</div>
+		<div>
+			<input type="radio" id="detailed_printout" name="printout_radio" value="detailed_printout" checked>
+			<label for="detailed_printout">With detailed printout</label>
+		</div>
+		<div>
+			<input type="radio" id="condensed_printout" name="printout_radio" value="condensed_printout">
+			<label for="condensed_printout">Without detailed printout</label>
+		</div>
+	</p>
+	<p>
+		<div>
+			Data download as "csv" file:
+		</div>
+		<div>
+			<input type="checkbox" id="download_regression_data" name="download_regression_data">
+			<label for="download_regression_data">Download data for multiple regression analysis</label>
+		</div>
+		<div>
+			<input type="checkbox" id="download_all_data" name="download_all_data">
+			<label for="download_all_data">Download complete data for all simulation periods</label>
+		</div>
+	</p>
+	<p>
+		<div>
+			Number format for download:
+		</div>
+		<div>
+			<input type="radio" id="format_dot" name="format_radio" value="format_dot" checked>
+			<label for="format_dot">Dot as decimal separator</label>
+		</div>
+		<div>
+			<input type="radio" id="format_comma" name="format_radio" value="format_comma">
+			<label for="format_comma">Comma as decimal separator</label>
+		</div>
+	</p>
+	<p>
+		<button onclick="run_program_button();">Run the program</button>
+	</p>
+
+
+
+	<h2>Graph</h2>
+
+	<p>
+		<label for="graph_var">Select a a variable:</label>
+		<select id="graph_var">
+		</select>
+	</p>
+	<p>
+		<div id="graph_upper_limit">0</div>
+		<div id="graph"></div>
+		<div id="graph_lower_limit">0</div>
+		<div>This is the graph for the last simulation run made. The x-axis represents time (period 1-50). Firm 1 is the
+			red line. Firm 2 is the blue line.</div>
+	</p>
+
+
+
+
+	<h2>Printout</h2>
+
+	<div id="print_out">
+	</div>
+
+</body>

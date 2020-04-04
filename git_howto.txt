@@ -1,0 +1,14 @@
+
+
+Anschauen:
+
+git status
+
+
+
+Änderungen hochladen:
+
+git add --all
+git commit -m "Editing the README to try out git add/commit"
+git push
+
