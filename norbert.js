@@ -21,7 +21,9 @@ const the_menu = {
         "Tailgunner Binary Translation to JavaScript": "tailgunner.html",
         "IBM 5110 Emulator": "ibm5110_js.html",
         "Mailuefterl Emulator": "mailuefterl.html",
-        "Zuse Z22 Emulator": "z22.html"
+        "Zuse Z22 Emulator": "z22.html",
+        "A Behavioral Theory of the Firm": "abtof.html",
+	"MONABUS, A Business Simulation Exercise": "monabus.html"
     },
 
     "Atari":
@@ -65,8 +67,7 @@ const the_menu = {
         "Topfield Sat Receiver Emulators": "topfield.html",
         "The 'LineTo' Bug Game": "lineto.html",
         "BTX Server, Mupid": "btx_server.html",
-        "Floppy and Screen for the Epson HX-20": "flashx20.html",
-        "A Behavioral Theory of the Firm": "abtof.html"
+        "Floppy and Screen for the Epson HX-20": "flashx20.html"
     },
 
     "Old Java Emus":
@@ -90,7 +91,7 @@ const the_title = "Norbert's Emulators"
 
 const the_footer = "Norbert Kehrer, 1999-2020"
 
-const the_newest_article_number = 123;
+const the_newest_article_number = 124;
 
 const the_nr_of_articles_to_fetch_at_load = 7;
 const the_article_path_prefix = the_website + "news/a_";

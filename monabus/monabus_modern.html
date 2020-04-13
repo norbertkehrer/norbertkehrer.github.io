@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>
+		MONABUS - A Business Simulation Exercise in JavaScript by Norbert Kehrer
+	</title>
+
+	<script type="text/javascript" src="monabus_modern.js"></script>
+
+	<link rel="stylesheet" href="monabus_modern.css">
+</head>
+
+
+<body onload="main();" class="print_out">
+
+	<h1>MONABUS - A Business Simulation Exercise</h1>
+
+	Original by Walter Lewis Brown Jr. in 1966.<br>
+	Ported to JavaScript by Norbert Kehrer in 2020.
+
+	<h2>Game</h2>
+
+	<p>
+		<button onclick="simulate_next_period();">Run Simulation</button>
+		<span style="display:inline-block; width: 64px;"></span>
+		<label for="input_ex">Economic Index:</label>
+		<input type="number" id="input_ex" name="input_ex" step="0.05" value="2.25">
+	</p>
+
+	<table id="game_table">
+	</table>
+
+
+	<h2>Background</h2>
+
+	<p>
+		In 1966, Walter Lewis Brown wrote his master's thesis at the University of Montana, in which he describes
+		his management game MONABUS. The exact citation is:
+		<blockquote>
+			Brown, Walter L., <em>MONABUS - A Business Simulation Exercise</em>, Master's thesis,
+			University of Montana, USA, 1966.
+		</blockquote>
+	</p>
+	<p>
+		The thesis describes a very nice and simple round-based management game, where three teams of students
+		can make key decisions, like production volume, selling price etc., for the next time period for their
+		respective firms. The game administrator then feeds punch cards with these decision parameters into the
+		computer (an <a href="https://en.wikipedia.org/wiki/IBM_1620" target="_blank">IBM 1620</a> back in 1966),
+		which then simulates their consequences on the market and for the three companies. The outcome is a printout
+		with financial statements and market data for the firms. The paper is handed over to the student teams as
+		the basis to prepare their decisions for the next period.
+	</p>
+	<p>
+		The thesis is nicely built-up. It contains an introduction, a manual for the participants, a manual for the
+		game administrator, decision forms, and instructions for the operating staff of the computer center.
+		Of course, the students were usually not allowed to directly operate the computer by themselves back then
+		:-/
+	</p>
+	<p>
+		I can tell you, that it is quite fun to play these kind of games. I had the pleasure to participate in such
+		a game at my university back in the 1980s. It was called MARKSTRAT (which still exists
+		<a href="https://web.stratxsimulations.com" target="_blank">today</a>), also ran on an IBM machine
+		(a 4331 mainframe), and, even if it was twenty years later, we as students still had no access
+		to the machine itself, but just received paper printouts. I bet, the administrator even fed our decisions
+		into the machine via punch cards (the virtual ones, though, which VM/SP, our IBM's operating system,
+		emulated as part of its virtual machine engine).
+	</p>
+	<p>
+		Walter's MONABUS thesis luckily also contains the complete listing of his computer program written in the
+		programming language FORTRAN. This is my translation of the original program to JavaScript.
+		I tried to keep the program semantically equal to the original code, but "modernized" it a little bit
+		in the code, by	having long variable names, and in the output for the browser.
+		It is quite hard to beat the standard parameter setup, actually.
+	</p>
+	<p>
+		The source code of my JavaScript program is available on
+		<a href="https://en.wikipedia.org/wiki/Bendix_G-20" target="_blank">GitHub</a>.
+	</p>
+	<p>
+		Read more about this and my other projects on my website
+		<a href="http://members.aon.at/nkehrer" target="_blank">http://members.aon.at/nkehrer</a>.
+	</p>
+	<p>
+		Have fun.
+	</p>
+	<p>
+		Norbert
+	</p>
+
+
+</body>

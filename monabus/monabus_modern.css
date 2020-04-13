@@ -1,0 +1,71 @@
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    background-color: #222222;
+    color: lightsteelblue;
+}
+
+h1 {
+    color: orangered;
+    font-size: 32px;
+    font-style: italic;
+    margin-top: 32px;
+}
+
+h2 {
+    font-size: 24px;
+    margin-top: 64px;
+    color: orangered;
+}
+
+button {
+    padding: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: orangered;
+}
+
+input {
+    width: 100px;
+    text-align: right;
+    font-family: monospace;
+    font-size: 16px;
+    text-shadow: 0 0 1px;
+    background-color: #aaaaaa;
+}
+
+a:link {
+    color: orangered;
+}
+
+a:visited {
+    color: orangered;
+}
+
+
+.gt_number {
+    width: 160px;
+    text-align: right;
+    font-family: monospace;
+    font-size: 16px;
+}
+
+.gt_headline {
+    font-weight: bold;
+    font-style: italic;
+    color: orangered;
+}
+
+.gt_top_headline {
+    font-weight: bold;
+    font-style: italic;
+    text-align: center;
+    color: orangered;
+}
+
+.gt_description {
+    width: 160px;
+    text-align: left;
+    font-size: 16px;
+}

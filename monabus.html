@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Norbert</title>
+    <link rel="stylesheet" href="norbert.css">
+    <script src="norbert.js"></script>
+</head>
+
+<body>
+    <div id="page_content">
+        <!-- *********************************************************************************************** -->
+
+
+
+        <h2>MONABUS, A Business Simulation Exercise, in JavaScript</h2>
+
+        <p>
+            In 1966, Walter Lewis Brown wrote his master's thesis at the University of Montana, in which he describes
+            his management game MONABUS. The exact citation is:
+            <blockquote>
+                Brown, Walter L., <em>MONABUS - A Business Simulation Exercise</em>, Master's thesis,
+                University of Montana, USA, 1966.
+            </blockquote>
+        </p>
+        <p>
+            The thesis describes a very nice and simple round-based management game, where three teams of students
+            can make key decisions, like production volume, selling price etc., for the next time period for their
+            respective firms. The game administrator then feeds punch cards with these decision parameters into the
+            computer (an <a href="https://en.wikipedia.org/wiki/IBM_1620" target="_blank">IBM 1620</a> back in 1966),
+            which then simulates their consequences on the market and for the three companies. The outcome is a printout
+            with financial statements and market data for the firms. The paper is handed over to the student teams as
+            the basis to prepare their decisions for the next period.
+        </p>
+        <p>
+            The thesis is nicely built-up. It contains an introduction, a manual for the participants, a manual for the
+            game administrator, decision forms, and instructions for the operating staff of the computer center.
+            Of course, the students were usually not allowed to directly operate the computer by themselves back then
+            :-/
+        </p>
+        <p>
+            I can tell you, that it is quite fun to play this kind of games. I had the pleasure to participate in such
+            a game at my university back in the 1980s. It was called MARKSTRAT (which still exists
+            <a href="https://web.stratxsimulations.com" target="_blank">today</a>), also ran on an IBM machine
+            (a 4331 mainframe), and, even if it was twenty years later, we as students still had no access
+            to the machine itself, but just received paper printouts. I bet, the administrator even fed our decisions
+            into the machine via punch cards (the virtual ones, though, which VM/SP, our IBM's operating system,
+            emulated as part of its virtual machine engine).
+        </p>
+        <p>
+            Walter's MONABUS thesis luckily also contains the complete listing of his computer program written in the
+            programming language FORTRAN. This is my translation of the original program to JavaScript.
+            I made two versions. One, in which I tried to keep the code and the input and output as similar as possible
+            to the original, and a second one, where I tried to keep the program semantically equal to the original
+            code, but "modernized" it a little bit in the code, by having long variable names, and in the output for the
+            browser. It is quite hard to beat the standard parameter setup, actually.
+        </p>
+        <p>
+            To make the translation process a little bit clearer, you see in the following a code segment in
+            FORTRAN and its representation in JavaScript:
+        </p>
+        <p>
+            <img src="monabus/monabus_fortran.png" alt="Norbert Kehrer's port of MONABUS">
+        </p>
+        <p>
+            <img src="monabus/monabus_js1.png" alt="Norbert Kehrer's port of MONABUS">
+
+        </p>
+        <p>
+            <img src="monabus/monabus_js2.png" alt="Norbert Kehrer's port of MONABUS">
+
+        </p>
+        <p>
+            You can try out the game directly in your browser here:
+            <ul>
+                <li>
+                    <a href="monabus/monabus_modern.html" target="_blank">MONABUS - modernized</a>.
+                </li>
+                <li>
+                    <a href="monabus/monabus.html" target="_blank">MONABUS - old fashioned</a>.
+                </li>
+            </ul>
+        </p>
+
+        <p>
+            I also published the complete source code of my JavaScript program on
+            <a href="https://github.com/norbertkehrer/monabus" target="_blank">GitHub</a>.
+        </p>
+        <p>
+            And here are two screen shots:
+        </p>
+        <p>
+            <img src="monabus/monabus_screenshot_1.png" alt="Norbert Kehrer's port of MONABUS">
+        </p>
+        <p>
+            <img src="monabus/monabus_screenshot_2.png" alt="Norbert Kehrer's port of MONABUS">
+
+        </p>
+
+
+
+
+        <!-- *********************************************************************************************** -->
+    </div>
+</body>
+
+</html>
