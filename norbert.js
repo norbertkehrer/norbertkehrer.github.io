@@ -91,7 +91,7 @@ const the_title = "Norbert's Emulators"
 
 const the_footer = "Norbert Kehrer, 1999-2020"
 
-const the_newest_article_number = 124;
+const the_newest_article_number = 125;
 
 const the_nr_of_articles_to_fetch_at_load = 7;
 const the_article_path_prefix = the_website + "news/a_";
