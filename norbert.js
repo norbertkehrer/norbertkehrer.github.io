@@ -23,7 +23,8 @@ const the_menu = {
         "Mailuefterl Emulator": "mailuefterl.html",
         "Zuse Z22 Emulator": "z22.html",
         "A Behavioral Theory of the Firm": "abtof.html",
-	"MONABUS, A Business Simulation Exercise": "monabus.html"
+	"MONABUS, A Business Simulation Exercise": "monabus.html",
+	"Infernal Runner" : "infernal_runner_compiled.html"
     },
 
     "Atari":
