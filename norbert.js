@@ -107,6 +107,8 @@ const the_news_div_element = "news";
 
 let current_article_number = the_newest_article_number;
 
+let waiting_for_article_loading_finished = false;   // a hack :-(
+
 
 // *** The Onload listener
 
@@ -248,16 +250,21 @@ function article(day, month, year, title, text) {
 
 
 function fetchArticle(count) {
+    if (waiting_for_article_loading_finished) {
+        return;
+    };
     if ((current_article_number < 0) || (count === undefined)) {
         return;
     };
     const filenum = ("0000" + current_article_number).slice(-4);
     const filename = (the_article_path_prefix + filenum + ".js");
+    waiting_for_article_loading_finished = true;
     loadJavaScriptFileAndExecute(filename, () => {
         current_article_number--;
         if (count > 1) {
             fetchArticle(count - 1);
         };
+        waiting_for_article_loading_finished = false;
     });
 };
 
