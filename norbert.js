@@ -1,6 +1,5 @@
 // *** Norbert's homepage
 
-//const the_website = "https://norbertkehrer.github.io/";   // for A1
 const the_website = "";     // for Github
 
 // **** The menu
@@ -24,7 +23,8 @@ const the_menu = {
         "Zuse Z22 Emulator": "z22.html",
         "A Behavioral Theory of the Firm": "abtof.html",
 	"MONABUS, A Business Simulation Exercise": "monabus.html",
-	"Infernal Runner" : "infernal_runner_compiled.html"
+	"Infernal Runner" : "infernal_runner_compiled.html",
+	"CPC Soundtrakker Player" : "st_player.html"
     },
 
     "Atari":
@@ -90,11 +90,11 @@ const the_menu = {
 
 const the_title = "Norbert's Emulators"
 
-const the_footer = "Norbert Kehrer, 1999-2020"
+const the_footer = "Norbert Kehrer, 1999-2021"
 
-const the_newest_article_number = 125;
+const the_newest_article_number = 126;
 
-const the_nr_of_articles_to_fetch_at_load = 7;
+const the_nr_of_articles_to_fetch_at_load = 3;
 const the_article_path_prefix = the_website + "news/a_";
 const the_menu_link_prefix = the_website;
 const the_news_div_element = "news";
