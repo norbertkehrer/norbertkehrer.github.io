@@ -406,22 +406,6 @@ function interrupt() {
         nextSong();
     };
 
-    // Schedule the next interrupt (50 Hz)
-    if (exact_timing) {
-        requestAnimationFrame(interrupt);
-        // This is for timing to make the 60 Hz frame refresh to a 50 Hz interrupt like in old European TV sets
-        timing_counter++;
-        if (timing_counter > 4) {
-            timing_counter = 0;
-            return;
-        };
-    }
-    else {  // Not exact due to the weakness of Firefox, but can be run, when browser window is not visible
-        const now = Date.now();
-        time_last_interrupt = now;
-        timeout = setTimeout(interrupt, 20);
-    };
-
     // Loop over the 3 channels for the things to do in each interrupt
     for (let i = 0; i < 3; i++) {
         channelPlayEach50HzStep(i);
@@ -441,8 +425,6 @@ function interrupt() {
     for (let i = 0; i < 3; i++) {
         channelPlayEachPatternLine(i)
     };
-
-    updateUI();
 
     // Update counter for the pattern lines
     current_pattern_line++;
@@ -622,22 +604,69 @@ function play() {
         initOsci(OSCI_SAWTOOTH);
         initOsci(OSCI_TRIANGLE);
 
-        // switch timing method (from requestAnimationFrame to setTimeout), when the user switches away from this window
-        document.addEventListener("visibilitychange", () => {
-            exact_timing = (document.visibilityState === "visible");
-            if (!exact_timing) {
-                time_last_interrupt = Date.now();
-                timeout = setTimeout(interrupt, 20);
-            }
-            else {
-                clearTimeout(timeout);
-            };
-        });
-
-        // Start the 50Hz interrupt for continuous update. These damned browsers still have differences in timing!! That's crazy. Come on guys we are in 2021.
-        time_last_interrupt = Date.now();
-        requestAnimationFrame(interrupt);
+        // Start the 25Hz interrupt for continuous update.
+        setTimeout(periodicTask, interval);
     };
+}
+
+
+// Thank you Bergi and Blorf from stackoverflow for this timing solution:
+
+function calcDrift(arr) {
+    // Calculate drift correction.
+
+    /*
+    In this example I've used a simple median.
+    You can use other methods, but it's important not to use an average. 
+    If the user switches tabs and back, an average would put far too much
+    weight on the outlier.
+    */
+
+    let values = arr.concat(); // copy array so it isn't mutated
+
+    values.sort(function (a, b) {
+        return a - b;
+    });
+    if (values.length === 0) return 0;
+    const half = Math.floor(values.length / 2);
+    if (values.length % 2) return values[half];
+    const median = (values[half - 1] + values[half]) / 2.0;
+
+    return median;
+}
+
+
+function periodicTask() {
+    var dt = Date.now() - expected; // the drift (positive for overshooting)
+    if (dt > interval) {
+        // something really bad happened. Maybe the browser (tab) was inactive?
+        // possibly special handling to avoid futile "catch up" run
+    }
+    // do what is to be done
+    interrupt();
+    interrupt();
+    updateUI();
+
+
+
+    // don't update the history for exceptionally large values
+    if (dt <= interval) {
+        // sample drift amount to history after removing current correction
+        // (add to remove because the correction is applied by subtraction)
+        drift_history.push(dt + drift_correction);
+
+        // predict new drift correction
+        drift_correction = calcDrift(drift_history);
+
+        // cap and refresh samples
+        if (drift_history.length >= drift_history_samples) {
+            drift_history.shift();
+        }
+    }
+
+    expected += interval;
+    // take into account drift with prediction
+    setTimeout(periodicTask, Math.max(0, interval - dt - drift_correction));
 }
 
 

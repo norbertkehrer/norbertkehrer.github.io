@@ -147,10 +147,16 @@ let selected_song = 0;
 let first_time_start = true;
 
 // This is for timing. I do not understand, why Firefox cannot do a reliable setInterval(20). Works in Chrome.
-let exact_timing = true;
+const interval = 40; // ms
+let expected = Date.now() + interval;
+let drift_history = [];
+let drift_history_samples = 10;
+let drift_correction = 0;
+
+//let exact_timing = true;
 let time_last_interrupt = 0;
-let timing_counter = 0;
-let timeout = {};
+//let timing_counter = 0;
+//let timeout = {};
 let time_last_song = 0;
 const DURATION_OF_A_SONG = 180 * 1000; // in milliseconds
 
