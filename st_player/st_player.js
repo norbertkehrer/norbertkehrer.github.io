@@ -605,6 +605,7 @@ function play() {
         initOsci(OSCI_TRIANGLE);
 
         // Start the 25Hz interrupt for continuous update.
+        expected = Date.now() + interval;
         setTimeout(periodicTask, interval);
     };
 }
