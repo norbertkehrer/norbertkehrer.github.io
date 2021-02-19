@@ -157,7 +157,7 @@ function noiseHardwEnvPlayEach50HzStep() {
         };
         // Hardware envelope
         if (ch_hardware_envelope_flag[i] !== HARDW_ENV_OFF) {
-            ay_registers[8 + i] |= 0x10; // mit 8+ 2 geht es - probiuere lied led-zep??
+            ay_registers[8 + i] |= 0x10; // mit 8+ 2 geht es - probiere lied led-zep??
             ay_registers[13] = ch_hardware_envelope_flag[i];
             ay_registers[11] = ch_hardware_envelope_period[i];
             ay_registers[12] = 0;
@@ -416,7 +416,7 @@ function run() {
     };
 
     // Set first song to play
-    selected_song = 72; // Song "Demo1"
+    selected_song = 104; // Song "Elmibub"
 
     // UI initialization
     initUi();
@@ -428,6 +428,20 @@ function run() {
 // When I have time, I should convert it to audio worklet to be more future-proof
 
 function updateState(renderer, r) {
+    /*    r = [
+            0x22, 0x22, // channel A tone period
+            0xff, 0x00, // channel B tone period
+            0xff, 0x00, // channel C tone period
+            0x22, // noise period
+            0xf8, // enable
+            0x00, // channel A amplitude
+            0x00, // channel B amplitude
+            0x10, // channel C amplitude
+            0x22, 0x00, // envelope period
+            0x09,  // envelope shape
+            0x00, 0x00
+        ];
+        */
     renderer.setTone(0, (r[1] << 8) | r[0]);
     renderer.setTone(1, (r[3] << 8) | r[2]);
     renderer.setTone(2, (r[5] << 8) | r[4]);
@@ -439,8 +453,11 @@ function updateState(renderer, r) {
     renderer.setVolume(1, r[9] & 0xf);
     renderer.setVolume(2, r[10] & 0xf);
     renderer.setEnvelope((r[12] << 8) | r[11]);
-    if (r[13] != 0xff) {
-        renderer.setEnvelopeShape(r[13]);
+    if (r[13] !== ay_reg13_old) {
+        ay_reg13_old = r[13];
+        if (r[13] != 0xff) {
+            renderer.setEnvelopeShape(r[13]);
+        };
     };
 }
 

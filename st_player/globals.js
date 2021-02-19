@@ -105,7 +105,10 @@ let ay_registers = [
   0x00, // channel C amplitude
   0x22, 0x22, // envelope period
   0x00,  // envelope shape
+  0x00, 0x00
 ];
+
+let ay_reg13_old = -1;
 
 // For muting:
 let master_volume = 1;
