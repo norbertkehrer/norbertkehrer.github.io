@@ -304,7 +304,7 @@ function interrupt() {
     for (let i = 0; i < 3; i++) {
         ch_active_arpeggio[i] = NO_ARPEGGIO;
         ch_hardware_envelope_flag[i] = HARDW_ENV_OFF;
-        ch_volume[i] = 0;
+        //ch_volume[i] = 0;
     };
 
 };
@@ -482,7 +482,7 @@ function play() {
 
         // Audio init
         audioContext = new AudioContext();
-        audioNode = audioContext.createScriptProcessor(512, 0, 2);
+        audioNode = audioContext.createScriptProcessor(1024, 0, 2);
         audioNode.onaudioprocess = fillBuffer;
 
         sampleRate = audioContext.sampleRate;
