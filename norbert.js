@@ -22,9 +22,10 @@ const the_menu = {
         "Mailuefterl Emulator": "mailuefterl.html",
         "Zuse Z22 Emulator": "z22.html",
         "A Behavioral Theory of the Firm": "abtof.html",
-	"MONABUS, A Business Simulation Exercise": "monabus.html",
-	"Infernal Runner" : "infernal_runner_compiled.html",
-	"CPC Soundtrakker Player" : "st_player.html"
+        "MONABUS, A Business Simulation Exercise": "monabus.html",
+        "Infernal Runner": "infernal_runner_compiled.html",
+        "CPC Soundtrakker Player": "st_player.html",
+        "Simulation of the Firm through a Budget Computer Program": "mattessich.html"
     },
 
     "Atari":
@@ -92,7 +93,7 @@ const the_title = "Norbert's Emulators"
 
 const the_footer = "Norbert Kehrer, 1999-2021"
 
-const the_newest_article_number = 128;
+const the_newest_article_number = 129;
 
 const the_nr_of_articles_to_fetch_at_load = 3;
 const the_article_path_prefix = the_website + "news/a_";
