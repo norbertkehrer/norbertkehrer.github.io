@@ -10,6 +10,7 @@
 
     <script>
 
+        let element_audio = {}
         let element_speed = {}
         let element_position = {};
         let element_heading = {};
@@ -17,6 +18,7 @@
 
         function run() {
 
+            element_audio = document.getElementById("audio");
             element_speed = document.getElementById("speed");
             element_position = document.getElementById("position");
             element_heading = document.getElementById("heading");
@@ -58,6 +60,8 @@
             element_position.innerHTML = `Latitude: ${latitude} °, Longitude: ${longitude} °`;
             element_heading.innerHTML = heading
 
+            element_audio.title = "NK: " + speed + "km/h, heading=" + heading + ", " + latitude + "/" + longitude
+
         }
 
         function updatePosition() {
@@ -73,7 +77,7 @@
 
 <body onload="run()">
 
-    <audio id="audio_element" controls autoplay loop src="denise.mp3" title="Denise (title in the audio tag)"></audio>
+    <audio id="audio" controls autoplay loop src="denise.mp3" title="Denise (title in the audio tag)"></audio>
 
     <p>.</p>
     <p>.</p>
