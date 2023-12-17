@@ -9,13 +9,43 @@
     </title>
 
     <script>
-        let count = 0
 
-        setInterval(() => {
-            count++;
-            const el = document.getElementById("audio_element");
-            el.title = "Denise + " + count;
-        }, 7000)
+        const element_speed = document.getElementById("display");
+        const element_position = document.getElementById("position");
+        const element_heading = document.getElementById("heading");
+
+
+        if (!navigator.geolocation) {
+            speed.innerHTML = "Geolocation is not supported by your browser";
+        } else {
+            navigator.geolocation.getCurrentPosition(positionChanged, alert("getCurrentposition failed"))
+            const watchID = navigator.geolocation.watchPosition(positionChanged)
+
+        }
+
+        /*
+                    let count = 0
+        
+                    setInterval(() => {
+                        count++;
+                        const el = document.getElementById("audio_element");
+                        el.title = "Denise + " + count;
+                    }, 7000)
+        */
+
+
+        function positionChanged(position) {
+            const latitude = position.coords.latitude;
+            const longitude = position.coords.longitude;
+            const altitude = position.coords.altitude;
+            const speed = position.coords.speed * 3.6;
+            const heading = position.coords.heading
+            element_speed.innerHTML = speed + " km/h"
+            element_position.innerHTML = `Latitude: ${latitude} °, Longitude: ${longitude} °`;
+            element_heading.innerHTML = heading
+
+        }
+
 
     </script>
 
@@ -25,6 +55,26 @@
 <body>
 
     <audio id="audio_element" controls autoplay loop src="denise.mp3" title="Denise (title in the audio tag)"></audio>
+
+    <p></p>
+
+    <dl>
+        <dt>Speed:</dt>
+        <dd>
+            <div id="speed"> </div>
+        </dd>
+
+        <dt>Position:</dt>
+        <dd>
+            <div id="position"> </div>
+        </dd>
+
+        <dt>Heading:</dt>
+        <dd>
+            <div id="heading"> </div>
+        </dd>
+    </dl>
+
 
 
 </body>
