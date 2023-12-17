@@ -10,29 +10,36 @@
 
     <script>
 
-        const element_speed = document.getElementById("display");
-        const element_position = document.getElementById("position");
-        const element_heading = document.getElementById("heading");
+        let element_speed = {}
+        let element_position = {};
+        let element_heading = {};
 
+        function run() {
 
-        if (!navigator.geolocation) {
-            speed.innerHTML = "Geolocation is not supported by your browser";
-        } else {
-            navigator.geolocation.getCurrentPosition(positionChanged, alert("getCurrentposition failed"))
-            const watchID = navigator.geolocation.watchPosition(positionChanged)
+            element_speed = document.getElementById("display");
+            element_position = document.getElementById("position");
+            element_heading = document.getElementById("heading");
 
+            console.log("running")
+
+            if (!navigator.geolocation) {
+                element_speed.innerHTML = "Geolocation is not supported by your browser";
+            } else {
+                //const watchID = navigator.geolocation.watchPosition(positionChanged)
+                console.log("set interval")
+                setInterval(updatePosition, 3000)
+            }
+
+            /*
+                        let count = 0
+            
+                        setInterval(() => {
+                            count++;
+                            const el = document.getElementById("audio_element");
+                            el.title = "Denise + " + count;
+                        }, 7000)
+            */
         }
-
-        /*
-                    let count = 0
-        
-                    setInterval(() => {
-                        count++;
-                        const el = document.getElementById("audio_element");
-                        el.title = "Denise + " + count;
-                    }, 7000)
-        */
-
 
         function positionChanged(position) {
             const latitude = position.coords.latitude;
@@ -40,10 +47,19 @@
             const altitude = position.coords.altitude;
             const speed = position.coords.speed * 3.6;
             const heading = position.coords.heading
+            console.log(speed + " km/h")
+            console.log(`Latitude: ${latitude} °, Longitude: ${longitude} °`)
+            console.log(heading)
+
             element_speed.innerHTML = speed + " km/h"
             element_position.innerHTML = `Latitude: ${latitude} °, Longitude: ${longitude} °`;
             element_heading.innerHTML = heading
 
+        }
+
+        function updatePosition() {
+            console.log("updatePosition")
+            navigator.geolocation.getCurrentPosition(positionChanged, () => { element_speed.innerHTML = "getCurrentposition failed" })
         }
 
 
@@ -52,11 +68,14 @@
 </head>
 
 
-<body>
+<body onload="run()">
 
     <audio id="audio_element" controls autoplay loop src="denise.mp3" title="Denise (title in the audio tag)"></audio>
 
-    <p></p>
+    <p>.</p>
+    <p>.</p>
+    <p>.</p>
+    <p>.</p>
 
     <dl>
         <dt>Speed:</dt>
