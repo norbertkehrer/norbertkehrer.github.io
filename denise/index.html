@@ -35,7 +35,7 @@
             } else {
                 //const watchID = navigator.geolocation.watchPosition(positionChanged)
                 console.log("set interval")
-                setInterval(updatePosition, 1000)
+                setInterval(updatePosition, 5000)
             }
         }
 
@@ -51,7 +51,13 @@
             }
 
             const distance = calculateDistance(last_position,position_now)
+            console.log("dist is " + distance)
+            console.log("now is " + Date.now())
+            console.log("last_time is " + last_time)
+            
             const time = (Date.now() - last_time) / 1000
+            console.log("time is " + time)
+
             last_position = position_now;
             last_time = Date.now();
 
