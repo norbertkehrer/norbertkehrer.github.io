@@ -40,18 +40,19 @@
         }
 
         function positionChanged(position) {
-            if (last_position === undefined) {
-                last_position = position;
+            const position_now = position.coords
+            if (last_position === 0) {
+                last_position = position_now
                 return;
             }
-            if (last_time === undefined) {
+            if (last_time === 0) {
                 last_time = Date.now();
                 return;
             }
 
-            const distance = calculateDistance(last_position, position)
-            const time = Date.now() - last_time
-            last_position = position;
+            const distance = calculateDistance(last_position,position_now)
+            const time = (Date.now() - last_time) / 1000
+            last_position = position_now;
             last_time = Date.now();
 
             const speed = distance / time * 3.6;
@@ -79,7 +80,8 @@
 
 
         function calculateDistance(starting, ending) {
-            console.log("lat " + ending.latitude)
+            console.log("lat1 " + starting.latitude)
+            console.log("lat2 " + ending.latitude)
 
             const KM_RATIO = 6371;
             try {
