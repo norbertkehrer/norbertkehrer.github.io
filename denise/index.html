@@ -16,6 +16,10 @@
         let element_heading = {};
         let element_altitude = {};
 
+        let last_position = 0
+        let last_time = 0
+
+
         function run() {
 
             element_audio = document.getElementById("audio");
@@ -33,34 +37,32 @@
                 console.log("set interval")
                 setInterval(updatePosition, 1000)
             }
-
-            /*
-                        let count = 0
-            
-                        setInterval(() => {
-                            count++;
-                            const el = document.getElementById("audio_element");
-                            el.title = "Denise + " + count;
-                        }, 7000)
-            */
         }
 
         function positionChanged(position) {
-            const latitude = position.coords.latitude;
-            const longitude = position.coords.longitude;
-            const altitude = position.coords.altitude;
-            const speed = position.coords.speed * 3.6;
+            if (last_position === undefined) {
+                last_position = position;
+                return;
+            }
+            if (last_time === undefined) {
+                last_time = Date.now();
+                return;
+            }
+
+            const distance = calculateDistance(last_position, position)
+            const time = Date.now() - last_time
+            last_position = position;
+            last_time = Date.now();
+
+            const speed = distance / time * 3.6;
             const heading = position.coords.heading
             console.log(speed + " km/h")
-            console.log(`Latitude: ${latitude} °, Longitude: ${longitude} °`)
-            console.log("Altitude = " + altitude)
             console.log(heading)
 
             element_speed.innerHTML = speed + " km/h"
-            element_position.innerHTML = `Latitude: ${latitude} °, Longitude: ${longitude} °`;
             element_heading.innerHTML = heading
 
-            element_audio.title = "NK: " + speed + "km/h, heading=" + heading + ", " + latitude + "/" + longitude
+            element_audio.title = "NK: " + speed + "km/h, heading=" + heading
 
         }
 
@@ -68,6 +70,42 @@
             console.log("updatePosition at " + Date.now())
             navigator.geolocation.getCurrentPosition(positionChanged, () => { element_speed.innerHTML = "getCurrentposition failed" })
         }
+
+
+        function toRad(value) {
+            const RADIANT_CONSTANT = 0.0174532925199433;
+            return (value * RADIANT_CONSTANT);
+        }
+
+
+        function calculateDistance(starting, ending) {
+            console.log("lat " + ending.latitude)
+
+            const KM_RATIO = 6371;
+            try {
+                const dLat = toRad(ending.latitude - starting.latitude);
+                const dLon = toRad(ending.longitude - starting.longitude);
+                const lat1Rad = toRad(starting.latitude);
+                const lat2Rad = toRad(ending.latitude);
+
+                const a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+                    Math.sin(dLon / 2) * Math.sin(dLon / 2) * Math.cos(lat1Rad) * Math.cos(lat2Rad);
+                const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+                const d = KM_RATIO * c;
+                return d;
+            } catch (e) {
+                return -1;
+            }
+        }
+
+
+
+
+
+
+
+
+
 
 
     </script>
