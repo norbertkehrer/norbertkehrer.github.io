@@ -47,7 +47,8 @@ const the_menu = {
         "Atari Calculator for the C64": "atari_calc.html",
         "HP Calculator Emulators for the C64": "a800_c64_hp_emu.html",
         "Sprint 1 for the C64": "sprint_c64.html",
-        "Teletext Reader for the C64": "teletext_c64.html"
+        "Teletext Reader for the C64": "teletext_c64.html",
+        "C64 Centipede Emulator": "centipede_c64.html"
     },
 
     "Amstrad CPC":
@@ -91,7 +92,7 @@ const the_menu = {
 
 const the_title = "Norbert's Emulators"
 
-const the_footer = "Norbert Kehrer, 1999-2021"
+const the_footer = "Norbert Kehrer, 1999-2025"
 
 const the_newest_article_number = 129;
 
