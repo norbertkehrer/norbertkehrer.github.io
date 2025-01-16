@@ -94,7 +94,7 @@ const the_title = "Norbert's Emulators"
 
 const the_footer = "Norbert Kehrer, 1999-2025"
 
-const the_newest_article_number = 129;
+const the_newest_article_number = 130;
 
 const the_nr_of_articles_to_fetch_at_load = 3;
 const the_article_path_prefix = the_website + "news/a_";
@@ -299,7 +299,8 @@ function scrollHandler() {
         document.body.clientHeight, document.documentElement.clientHeight
     );
     // Get the current offset, i.e. how far "scrolled down"
-    const offset = window.pageYOffset + window.innerHeight;
+    //const offset = window.pageYOffset + window.innerHeight;
+    const offset = window.scrollY + window.innerHeight;
     // Fetch next article, if end of page is almost reached
     if (offset >= (height - 500)) {
         fetchArticle(1);
