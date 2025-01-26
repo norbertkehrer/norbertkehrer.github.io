@@ -35,7 +35,8 @@ const the_menu = {
         "Galaga for the Atari 800XL": "galaga.html",
         "HP Calculator Emulators for the Atari 800XL": "a800_c64_hp_emu.html",
         "Sprint 1 for the Atari 800XL": "sprint_a800.html",
-        "Radar Rat Race for the Atari 800XL": "rrr_a800.html"
+        "Radar Rat Race for the Atari 800XL": "rrr_a800.html",
+        "Atari 800XL Centipede Emulator": "centipede_a800.html"
     },
 
     "Commodore":
@@ -94,7 +95,7 @@ const the_title = "Norbert's Emulators"
 
 const the_footer = "Norbert Kehrer, 1999-2025"
 
-const the_newest_article_number = 130;
+const the_newest_article_number = 131;
 
 const the_nr_of_articles_to_fetch_at_load = 3;
 const the_article_path_prefix = the_website + "news/a_";
