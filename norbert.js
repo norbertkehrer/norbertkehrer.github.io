@@ -71,7 +71,8 @@ const the_menu = {
         "Topfield Sat Receiver Emulators": "topfield.html",
         "The 'LineTo' Bug Game": "lineto.html",
         "BTX Server, Mupid": "btx_server.html",
-        "Floppy and Screen for the Epson HX-20": "flashx20.html"
+        "Floppy and Screen for the Epson HX-20": "flashx20.html",
+        "IBM Mainframe to IBM 3151 Interface": "mainframe_3151.html"
     },
 
     "Old Java Emus":
@@ -95,7 +96,7 @@ const the_title = "Norbert's Emulators"
 
 const the_footer = "Norbert Kehrer, 1999-2025"
 
-const the_newest_article_number = 131;
+const the_newest_article_number = 132;
 
 const the_nr_of_articles_to_fetch_at_load = 3;
 const the_article_path_prefix = the_website + "news/a_";
